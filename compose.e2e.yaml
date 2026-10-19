@@ -1,0 +1,6 @@
+# Isolated test project: docker compose -p inventory-e2e -f compose.yaml -f compose.e2e.yaml up -d --no-build
+services:
+  app:
+    image: inventory-manager-app:latest
+    ports: !override
+      - "127.0.0.1:8081:8080"

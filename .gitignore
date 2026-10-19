@@ -1,0 +1,8 @@
+.env
+**/target/
+node_modules/
+.idea/
+.local/
+test-results/
+playwright-report/
+*.log

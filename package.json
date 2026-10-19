@@ -1,0 +1,12 @@
+{
+  "name": "inventory-manager-checks",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node --check backend/src/main/resources/static/app.js",
+    "test:e2e": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.1"
+  }
+}

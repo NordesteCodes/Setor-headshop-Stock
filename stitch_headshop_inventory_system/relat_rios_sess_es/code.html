@@ -1,0 +1,690 @@
+<!DOCTYPE html><html class="dark" lang="pt-BR" style=""><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"secondary-fixed-dim":"#ffb95f","on-secondary-fixed-variant":"#653e00","surface-variant":"#32353a","outline-variant":"#3c4a42","on-tertiary-fixed":"#410004","error":"#ffb4ab","surface-container-low":"#191c21","on-error":"#690005","on-tertiary":"#68000a","primary-container":"#10b981","tertiary-fixed-dim":"#ffb3ad","on-secondary":"#472a00","outline":"#86948a","inverse-on-surface":"#2e3036","surface-container-highest":"#32353a","tertiary-fixed":"#ffdad7","surface-container":"#1d2025","inverse-primary":"#006c49","primary-fixed-dim":"#4edea3","on-background":"#e1e2e9","on-primary":"#003824","on-secondary-fixed":"#2a1700","primary":"#4edea3","on-secondary-container":"#5b3800","on-primary-fixed":"#002113","on-primary-fixed-variant":"#005236","background":"#101418","tertiary":"#ffb3ad","on-surface-variant":"#bbcabf","surface-tint":"#4edea3","on-error-container":"#ffdad6","on-tertiary-container":"#79000e","surface-container-high":"#272a2f","error-container":"#93000a","secondary":"#ffb95f","tertiary-container":"#ff7a73","secondary-fixed":"#ffddb8","on-tertiary-fixed-variant":"#930013","surface-dim":"#101418","surface":"#101418","on-surface":"#e1e2e9","inverse-surface":"#e1e2e9","surface-container-lowest":"#0b0e13","surface-bright":"#36393f","secondary-container":"#ee9800","on-primary-container":"#00422b","primary-fixed":"#6ffbbe"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-lg":"1.25rem","margin-desktop":"2rem","space-md":"0.75rem","space-xl":"2rem","margin":"1rem","gutter":"1rem","space-xs":"0.25rem","space-sm":"0.5rem","gutter-desktop":"1.5rem"},"fontFamily":{"body-md":["Geist"],"headline-sm":["Geist"],"label-tag":["Geist"],"headline-lg-mobile":["Geist"],"headline-lg":["Geist"],"label-numeric":["JetBrains Mono"],"headline-md":["Geist"],"body-sm":["Geist"],"headline-xl":["Geist"],"headline-xl-mobile":["Geist"],"label-code":["JetBrains Mono"],"body-lg":["Geist"]},"fontSize":{"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"headline-sm":["16px",{"lineHeight":"24px","fontWeight":"500"}],"label-tag":["11px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"600"}],"headline-lg-mobile":["22px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-lg":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"600"}],"label-numeric":["13px",{"lineHeight":"18px","letterSpacing":"0.02em","fontWeight":"500"}],"headline-md":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"500"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"headline-xl":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-xl-mobile":["28px",{"lineHeight":"34px","letterSpacing":"-0.01em","fontWeight":"600"}],"label-code":["11px",{"lineHeight":"14px","letterSpacing":"0.05em","fontWeight":"500"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased min-h-screen"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-low flex flex-col z-50 shadow-[0_1px_8px_rgba(0,0,0,0.3)]"><div class="h-16 px-space-md flex items-center gap-space-sm bg-surface-container-low"><img alt="Obsidian Stock Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6X3oKzk7iMxdgUe53HuO7DWBb3OfPC_2RjXKctC4HydDFgJSsW4bljZgZHltoxokOxpjhT2yaRviFIrJurLLlZC3L4y3mUM6GiMwPPcknI95k6gWSE7DP20yJFRIvLorDEf8vD2aydNea2LLSzKcNwQI0K0GjRcpjH8fD2ylJZa2PxJyXW7XSZrkFXsGmjfEjWduIJHlINkSc74nRsIiyV8sZyW9zOMHWWGWclxtakqssGPdBB49ITQ"><div class="flex flex-col min-w-0"><span class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate leading-none">Setor Headshop</span></div></div><div class="px-space-md py-space-xs"><div class="h-px w-full bg-outline-variant/30"></div></div><nav class="flex-1 px-space-sm py-space-sm flex flex-col gap-1 overflow-y-auto" data-active-classes="bg-primary-container text-on-primary-container font-semibold shadow-sm"><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="dashboard-inventario" href="#"><span class="material-symbols-outlined text-lg leading-none">inventory_2</span><span class="font-body-md text-body-md">Dashboard &amp; Inventário</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="produtos" href="#"><span class="material-symbols-outlined text-lg leading-none">category</span><span class="font-body-md text-body-md">Produtos</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="cadastro-de-produto" href="#"><span class="material-symbols-outlined text-lg leading-none">add_box</span><span class="font-body-md text-body-md">Cadastro de Produto</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="entradas-saidas" href="#"><span class="material-symbols-outlined text-lg leading-none">swap_vert</span><span class="font-body-md text-body-md">Entradas &amp; Saídas</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="relatorios-sessoes" href="#"><span class="material-symbols-outlined text-lg leading-none">analytics</span><span class="font-body-md text-body-md">Relatórios &amp; Sessões</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="configuracoes-alertas" href="#"><span class="material-symbols-outlined text-lg leading-none">tune</span><span class="font-body-md text-body-md">Configurações &amp; Alertas</span></a></nav></aside><div class="pl-64 flex flex-col min-h-screen"><header class="fixed top-0 left-64 right-0 h-16 z-40 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.2)]"><div class="h-16 w-full px-gutter-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-sm"><span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Setor Headshop</span></div><div class="flex-1 max-w-xl mx-space-md"><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-base leading-none pointer-events-none">search</span><input class="w-full h-9 pl-9 pr-14 bg-surface-container-low rounded-lg font-body-sm text-body-sm text-on-surface placeholder:text-on-surface-variant/60 focus:outline-none focus:ring-1 focus:ring-primary shadow-inner" placeholder="Buscar produto por nome, SKU ou código de barras..." type="text"><div class="absolute right-2.5 flex items-center gap-1 pointer-events-none"><kbd class="font-label-code text-label-code px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant">Ctrl</kbd><kbd class="font-label-code text-label-code px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant">K</kbd></div></div></div><div class="flex items-center gap-space-sm"><div class="flex items-center bg-surface-container-low p-0.5 rounded-full"><button class="flex items-center justify-center w-7 h-7 rounded-full bg-surface-container-highest text-primary transition-all" title="Modo Obsidian Dark" type="button"><span class="material-symbols-outlined text-sm leading-none">dark_mode</span></button><button class="flex items-center justify-center w-7 h-7 rounded-full text-on-surface-variant hover:text-on-surface transition-all" title="Modo Slate Claro" type="button"><span class="material-symbols-outlined text-sm leading-none">light_mode</span></button></div><div class="relative"><button class="relative p-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" title="Notificações e Alertas" type="button"><span class="material-symbols-outlined text-xl leading-none">notifications</span><span class="absolute top-1.5 right-1.5 flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-error opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-error"></span></span></button></div></div></div></header><main class="relative pt-16 bg-surface flex-1 w-full px-gutter-desktop py-space-lg"><div class="flex flex-col w-full gap-space-lg">
+<!-- Top Bar / Page Header -->
+<div class="flex flex-col xl:flex-row xl:items-end justify-between gap-space-md">
+<div class="flex flex-col gap-1 max-w-3xl">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-code text-label-code uppercase tracking-wider">
+<span class="text-primary font-semibold">Módulo Contábil</span>
+<span class="">/</span>
+<span class="">Auditoria Periódica</span>
+<span class="">/</span>
+<span class="text-on-surface">Q3 2024</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface font-semibold tracking-tight">
+        Relatório Financeiro &amp; Análise por Sessão do Estoque
+      </h1>
+<p class="font-body-md text-body-md text-on-surface-variant">
+        Visão consolidada do capital imobilizado, margem de contribuição e produtos abaixo do estoque mínimo por departamento.
+      </p>
+</div>
+<!-- Quick Export Utility Group -->
+<div class="flex items-center gap-space-xs flex-wrap">
+<button class="flex items-center gap-2 h-9 px-3 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface text-body-sm font-medium transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-base leading-none text-on-surface-variant">table_chart</span>
+        Exportar CSV / Planilha
+      </button>
+<button class="flex items-center gap-2 h-9 px-3 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface text-body-sm font-medium transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-base leading-none text-tertiary">picture_as_pdf</span>
+        Exportar PDF
+      </button>
+<button class="flex items-center gap-2 h-9 px-3 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface text-body-sm font-medium transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-base leading-none text-on-surface-variant">print</span>
+        Imprimir Balanço
+      </button>
+</div>
+</div>
+<!-- Filtration & Scope Controls Bar -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-wrap items-center justify-between gap-space-md shadow-sm">
+<div class="flex flex-wrap items-center gap-space-md">
+<!-- Period Selector -->
+<div class="flex items-center bg-surface-container-lowest rounded-lg p-1">
+<button class="px-3 py-1.5 rounded-md font-body-sm text-body-sm text-on-surface font-medium hover:bg-surface-container transition-colors" type="button">
+          Últimos 30 dias
+        </button>
+<button class="px-3 py-1.5 rounded-md font-body-sm text-body-sm bg-primary-container text-on-primary-container font-semibold transition-colors shadow-sm" type="button">
+          Mês Atual
+        </button>
+<button class="px-3 py-1.5 rounded-md font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" type="button">
+          Ano 2024
+        </button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-md font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-xs leading-none">calendar_month</span>
+          Personalizado
+        </button>
+</div>
+<!-- Store Location Dropdown -->
+<div class="flex items-center gap-space-xs bg-surface-container px-3 py-1.5 rounded-lg">
+<span class="material-symbols-outlined text-base text-primary leading-none">storefront</span>
+<div class="flex flex-col text-left">
+<span class="font-label-code text-label-code text-on-surface-variant uppercase leading-none">Unidade</span>
+<select class="bg-transparent font-body-sm text-body-sm text-on-surface font-medium focus:outline-none cursor-pointer pr-4">
+<option class="bg-surface-container-high text-on-surface">Unidade Principal - Jardins</option>
+<option class="bg-surface-container-high text-on-surface">Boutique Pinheiros - Flagship</option>
+<option class="bg-surface-container-high text-on-surface">Galpão Logístico Mooca</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Live Sync Timestamp -->
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-code text-label-code">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="">Cotação atualizada há 6 minutos</span>
+</div>
+</div>
+<!-- Top Section: 3-Column Comparative Financial Summary -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-space-md">
+<!-- Card 1: Patrimônio Total em Mercadorias -->
+<div class="relative overflow-hidden bg-surface-container rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
+<div class="absolute -right-6 -bottom-6 w-32 h-32 rounded-full bg-primary/5 pointer-events-none blur-2xl"></div>
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-xl leading-none">account_balance_wallet</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-medium">Patrimônio Total</span>
+</div>
+<span class="font-label-tag text-label-tag px-2 py-0.5 rounded-full bg-surface-container-high text-primary font-semibold">
+          1.842 UNIDADES
+        </span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-baseline justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Valor Custo</span>
+<span class="font-headline-lg text-headline-lg font-label-numeric text-on-surface font-semibold tracking-tight">
+            R$ 84.750,00
+          </span>
+</div>
+<div class="w-full bg-surface-container-lowest h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 50.3%;"></div>
+</div>
+<div class="flex items-baseline justify-between pt-1">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Valor Custo</span>
+<span class="font-headline-sm text-headline-sm font-label-numeric text-primary font-semibold">
+            R$ 168.420,00
+          </span>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between font-label-code text-label-code text-on-surface-variant bg-surface-container-low px-space-sm py-1.5 rounded-lg">
+<span class="">Giro médio trimestral: <strong>4.2x</strong></span>
+<span class="text-primary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-xs leading-none">trending_up</span> +8.4% MoM
+        </span>
+</div>
+</div>
+<!-- Card 2: Margem Geral do Estoque -->
+<div class="relative overflow-hidden bg-surface-container rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
+<div class="absolute -right-6 -bottom-6 w-32 h-32 rounded-full bg-secondary/5 pointer-events-none blur-2xl"></div>
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-xl leading-none">percent</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-medium">Margem Geral Consolidada</span>
+</div>
+<span class="font-label-tag text-label-tag px-2 py-0.5 rounded-full bg-surface-container-high text-secondary font-semibold">
+          MARKUP 98.7%
+        </span>
+</div>
+<div class="flex items-center justify-between gap-space-md">
+<div class="flex flex-col">
+<span class="font-headline-xl text-headline-xl font-label-numeric text-on-surface font-semibold tracking-tight">
+            49.7%
+          </span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Margem de Contribuição Líquida</span>
+</div>
+<!-- Donut Mini Visual -->
+<div class="relative w-16 h-16 flex items-center justify-center">
+<svg class="w-16 h-16 transform -rotate-90" viewBox="0 0 36 36">
+<path class="text-surface-container-lowest" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path>
+<path class="text-secondary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="49.7, 100" stroke-linecap="round" stroke-width="3.5"></path>
+</svg>
+<span class="absolute font-label-code text-label-code text-secondary font-bold">49.7%</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between font-label-code text-label-code text-on-surface-variant bg-surface-container-low px-space-sm py-1.5 rounded-lg">
+<span class="">Lucro Bruto Estimado:</span>
+<span class="font-label-numeric text-secondary font-semibold">R$ 83.670,00</span>
+</div>
+</div>
+<!-- Card 3: Capital em Risco / Estoque Parado -->
+<div class="relative overflow-hidden bg-surface-container rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
+<div class="absolute -right-6 -bottom-6 w-32 h-32 rounded-full bg-error/5 pointer-events-none blur-2xl"></div>
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-error text-xl leading-none">hourglass_disabled</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-medium">Capital Imobilizado (&gt;90d)</span>
+</div>
+<span class="font-label-tag text-label-tag px-2 py-0.5 rounded-full bg-error-container text-tertiary-fixed font-semibold">
+          ALERTA DE OBSOLESCÊNCIA
+        </span>
+</div>
+<div class="flex items-baseline justify-between">
+<div class="flex flex-col">
+<span class="font-headline-lg text-headline-lg font-label-numeric text-error font-semibold tracking-tight">
+            R$ 3.840,00
+          </span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">4.5% do investimento total ativo</span>
+</div>
+<div class="text-right">
+<span class="font-label-numeric text-headline-sm text-on-surface font-semibold">28 SKUs</span>
+<p class="font-label-code text-label-code text-on-surface-variant">sem giro no trimestre</p>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between font-label-code text-label-code text-on-surface-variant bg-surface-container-low px-space-sm py-1.5 rounded-lg">
+<span class="">Ação sugerida:</span>
+<button class="text-error font-medium hover:underline flex items-center gap-0.5" type="button">
+          Campanha de Queima 25% OFF <span class="material-symbols-outlined text-xs leading-none">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Interactive Breakdown Panel (Share of Capital by Session) -->
+<div class="bg-surface-container rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">
+          Distribuição de Capital por Sessão / Categoria
+        </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Concentração percentual do saldo total investido (Valor Custo)</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-tag text-label-tag px-2 py-1 rounded bg-surface-container-high text-on-surface-variant uppercase">
+          6 Sessões Ativas
+        </span>
+</div>
+</div>
+<!-- Segmented Proportional Bar -->
+<div class="flex flex-col gap-space-xs">
+<div class="h-3 w-full bg-surface-container-lowest rounded-full overflow-hidden flex">
+<!-- Bongs & Vidrarias (34%) -->
+<div class="h-full bg-primary" style="width: 34%;" title="Bongs &amp; Vidrarias: 34%"></div>
+<!-- Vaporizadores & Pods (26%) -->
+<div class="h-full bg-primary-fixed-dim" style="width: 26%;" title="Vaporizadores &amp; Pods: 26%"></div>
+<!-- Sedas & Piteiras (17%) -->
+<div class="h-full bg-secondary" style="width: 17%;" title="Sedas &amp; Piteiras: 17%"></div>
+<!-- Dichavadores & Cuias (10%) -->
+<div class="h-full bg-secondary-fixed-dim" style="width: 10%;" title="Dichavadores &amp; Cuias: 10%"></div>
+<!-- Tabacos & Blunts (7%) -->
+<div class="h-full bg-tertiary-fixed-dim" style="width: 7%;" title="Tabacos &amp; Blunts: 7%"></div>
+<!-- Acessórios & Maçaricos (6%) -->
+<div class="h-full bg-surface-bright" style="width: 6%;" title="Acessórios &amp; Maçaricos: 6%"></div>
+</div>
+<!-- Segment Legend Tags -->
+<div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-space-sm pt-space-xs justify-end">
+
+
+
+
+
+
+</div>
+</div>
+</div>
+<!-- Category Financial Matrix (Interactive Table of the 6 Sessions) -->
+<div class="bg-surface-container rounded-xl overflow-hidden shadow-sm flex flex-col">
+<div class="p-space-md flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs bg-surface-container-high/40">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">
+          Matriz Financeira por Sessão
+        </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Métricas calculadas em tempo real com base no balanço de entradas e ordens de venda
+        </p>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-tag text-label-tag px-2.5 py-1 rounded bg-surface-container-low text-primary font-medium">
+          6 CATEGORIAS
+        </span>
+</div>
+</div>
+<!-- Responsive Scrollable Data Grid -->
+<div class="overflow-x-auto">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead class="bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code uppercase tracking-wider">
+<tr>
+<th class="py-3 px-space-md font-semibold">Sessão / Departamento</th>
+<th class="py-3 px-3 text-right font-semibold">SKUs</th>
+<th class="py-3 px-3 text-right font-semibold">Volume (Pçs)</th>
+<th class="py-3 px-3 text-right font-semibold">Custo Total</th>
+<th class="py-3 px-3 text-right font-semibold">Venda Estimada</th>
+<th class="py-3 px-3 text-right font-semibold">Lucro Projetado</th>
+<th class="py-3 px-3 text-center font-semibold">Share Capital</th>
+<th class="py-3 px-space-md font-semibold">Estoque de Segurança</th>
+<th class="py-3 px-space-md text-right font-semibold">Ação</th>
+</tr>
+</thead>
+<tbody class="divide-y-0">
+<!-- Row 1: Bongs & Vidrarias -->
+<tr class="bg-surface-container hover:bg-surface-container-high transition-colors group">
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-lg leading-none">science</span>
+</div>
+<div>
+<span class="font-body-md text-body-md font-semibold text-on-surface block leading-tight">Bongs &amp; Vidrarias</span>
+<span class="font-label-code text-label-code text-on-surface-variant">Borossilicato / Percolators</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-3 text-right font-label-numeric text-on-surface">64</td>
+<td class="py-3.5 px-3 text-right font-label-numeric text-on-surface">192 un</td>
+<td class="py-3.5 px-3 text-right font-label-numeric font-medium text-on-surface">R$ 28.815,00</td>
+<td class="py-3.5 px-3 text-right font-label-numeric font-medium text-on-surface">R$ 62.400,00</td>
+<td class="py-3.5 px-3 text-right font-label-numeric font-semibold text-primary">+R$ 33.585,00</td>
+<td class="py-3.5 px-3 text-center">
+<span class="font-label-code text-label-code px-2 py-0.5 rounded-full bg-primary/10 text-primary font-bold">
+                34.0%
+              </span>
+</td>
+<td class="py-3.5 px-space-md">
+<span class="inline-flex items-center gap-1.5 font-label-tag text-label-tag px-2.5 py-1 rounded-full bg-error-container text-tertiary-fixed font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-error animate-ping"></span>
+                2 itens em alerta vermelho
+              </span>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<button class="px-3 py-1 rounded bg-surface-container-low hover:bg-primary hover:text-on-primary text-on-surface font-body-sm text-body-sm transition-colors" type="button">
+                Filtrar sessão
+              </button>
+</td>
+</tr>
+<!-- Row 2: Vaporizadores & Pods -->
+<tr class="bg-surface-container-low hover:bg-surface-container-high transition-colors group">
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary-fixed-dim">
+<span class="material-symbols-outlined text-lg leading-none">vape_free</span>
+</div>
+<div>
+<span class="font-body-md text-body-md font-semibold text-on-surface block leading-tight">Vaporizadores &amp; Pods</span>
+<span class="font-label-code text-label-code text-on-surface-variant">Condução / Convecção / Pods</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-3 text-right font-label-numeric text-on-surface">38</td>
+<td class="py-3.5 px-3 text-right font-label-numeric text-on-surface">114 un</td>
+<td class="py-3.5 px-3 text-right font-label-numeric font-medium text-on-surface">R$ 22.035,00</td>
+<td class="py-3.5 px-3 text-right font-label-numeric font-medium text-on-surface">R$ 41.800,00</td>
+<td class="py-3.5 px-3 text-right font-label-numeric font-semibold text-primary">+R$ 19.765,00</td>
+<td class="py-3.5 px-3 text-center">
+<span class="font-label-code text-label-code px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface font-medium">
+                26.0%
+              </span>
+</td>
+<td class="py-3.5 px-space-md">
+<span class="inline-flex items-center gap-1.5 font-label-tag text-label-tag px-2.5 py-1 rounded-full bg-error-container text-tertiary-fixed font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                3 itens em alerta vermelho
+              </span>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<button class="px-3 py-1 rounded bg-surface-container hover:bg-primary hover:text-on-primary text-on-surface font-body-sm text-body-sm transition-colors" type="button">
+                Filtrar sessão
+              </button>
+</td>
+</tr>
+<!-- Row 3: Sedas & Piteiras -->
+<tr class="bg-surface-container hover:bg-surface-container-high transition-colors group">
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-lg leading-none">article</span>
+</div>
+<div>
+<span class="font-body-md text-body-md font-semibold text-on-surface block leading-tight">Sedas &amp; Piteiras</span>
+<span class="font-label-code text-label-code text-on-surface-variant">King Size / Brown / Vidro</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-3 text-right font-label-numeric text-on-surface">142</td>
+<td class="py-3.5 px-3 text-right font-label-numeric text-on-surface">880 un</td>
+<td class="py-3.5 px-3 text-right font-label-numeric font-medium text-on-surface">R$ 14.407,50</td>
+<td class="py-3.5 px-3 text-right font-label-numeric font-medium text-on-surface">R$ 31.650,00</td>
+<td class="py-3.5 px-3 text-right font-label-numeric font-semibold text-primary">+R$ 17.242,50</td>
+<td class="py-3.5 px-3 text-center">
+<span class="font-label-code text-label-code px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface font-medium">
+                17.0%
+              </span>
+</td>
+<td class="py-3.5 px-space-md">
+<span class="inline-flex items-center gap-1.5 font-label-tag text-label-tag px-2.5 py-1 rounded-full bg-secondary-container/20 text-secondary-fixed font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                1 item em atenção
+              </span>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<button class="px-3 py-1 rounded bg-surface-container-low hover:bg-primary hover:text-on-primary text-on-surface font-body-sm text-body-sm transition-colors" type="button">
+                Filtrar sessão
+              </button>
+</td>
+</tr>
+<!-- Row 4: Dichavadores & Cuias -->
+<tr class="bg-surface-container-low hover:bg-surface-container-high transition-colors group">
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest flex items-center justify-center text-secondary-fixed-dim">
+<span class="material-symbols-outlined text-lg leading-none">motion_photos_on</span>
+</div>
+<div>
+<span class="font-body-md text-body-md font-semibold text-on-surface block leading-tight">Dichavadores &amp; Cuias</span>
+<span class="font-label-code text-label-code text-on-surface-variant">Alumínio Naval / Silicone Curado</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-3 text-right font-label-numeric text-on-surface">45</td>
+<td class="py-3.5 px-3 text-right font-label-numeric text-on-surface">240 un</td>
+<td class="py-3.5 px-3 text-right font-label-numeric font-medium text-on-surface">R$ 8.475,00</td>
+<td class="py-3.5 px-3 text-right font-label-numeric font-medium text-on-surface">R$ 16.920,00</td>
+<td class="py-3.5 px-3 text-right font-label-numeric font-semibold text-primary">+R$ 8.445,00</td>
+<td class="py-3.5 px-3 text-center">
+<span class="font-label-code text-label-code px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface font-medium">
+                10.0%
+              </span>
+</td>
+<td class="py-3.5 px-space-md">
+<span class="inline-flex items-center gap-1.5 font-label-tag text-label-tag px-2.5 py-1 rounded-full bg-surface-container-highest text-on-surface-variant font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                Níveis normais (0)
+              </span>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<button class="px-3 py-1 rounded bg-surface-container hover:bg-primary hover:text-on-primary text-on-surface font-body-sm text-body-sm transition-colors" type="button">
+                Filtrar sessão
+              </button>
+</td>
+</tr>
+<!-- Row 5: Tabacos & Blunts -->
+<tr class="bg-surface-container hover:bg-surface-container-high transition-colors group">
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest flex items-center justify-center text-tertiary-fixed-dim">
+<span class="material-symbols-outlined text-lg leading-none">eco</span>
+</div>
+<div>
+<span class="font-body-md text-body-md font-semibold text-on-surface block leading-tight">Tabacos &amp; Blunts</span>
+<span class="font-label-code text-label-code text-on-surface-variant">Orgânico Virginia / Terpenados</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-3 text-right font-label-numeric text-on-surface">29</td>
+<td class="py-3.5 px-3 text-right font-label-numeric text-on-surface">265 un</td>
+<td class="py-3.5 px-3 text-right font-label-numeric font-medium text-on-surface">R$ 5.932,50</td>
+<td class="py-3.5 px-3 text-right font-label-numeric font-medium text-on-surface">R$ 9.850,00</td>
+<td class="py-3.5 px-3 text-right font-label-numeric font-semibold text-primary">+R$ 3.917,50</td>
+<td class="py-3.5 px-3 text-center">
+<span class="font-label-code text-label-code px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface font-medium">
+                7.0%
+              </span>
+</td>
+<td class="py-3.5 px-space-md">
+<span class="inline-flex items-center gap-1.5 font-label-tag text-label-tag px-2.5 py-1 rounded-full bg-error-container text-tertiary-fixed font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-error animate-ping"></span>
+                2 itens em alerta vermelho
+              </span>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<button class="px-3 py-1 rounded bg-surface-container-low hover:bg-primary hover:text-on-primary text-on-surface font-body-sm text-body-sm transition-colors" type="button">
+                Filtrar sessão
+              </button>
+</td>
+</tr>
+<!-- Row 6: Acessórios & Maçaricos -->
+<tr class="bg-surface-container-low hover:bg-surface-container-high transition-colors group">
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-lg leading-none">local_fire_department</span>
+</div>
+<div>
+<span class="font-body-md text-body-md font-semibold text-on-surface block leading-tight">Acessórios &amp; Maçaricos</span>
+<span class="font-label-code text-label-code text-on-surface-variant">Gás Butano / Bags Antiodor</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-3 text-right font-label-numeric text-on-surface">51</td>
+<td class="py-3.5 px-3 text-right font-label-numeric text-on-surface">137 un</td>
+<td class="py-3.5 px-3 text-right font-label-numeric font-medium text-on-surface">R$ 5.085,00</td>
+<td class="py-3.5 px-3 text-right font-label-numeric font-medium text-on-surface">R$ 10.800,00</td>
+<td class="py-3.5 px-3 text-right font-label-numeric font-semibold text-primary">+R$ 5.715,00</td>
+<td class="py-3.5 px-3 text-center">
+<span class="font-label-code text-label-code px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface font-medium">
+                6.0%
+              </span>
+</td>
+<td class="py-3.5 px-space-md">
+<span class="inline-flex items-center gap-1.5 font-label-tag text-label-tag px-2.5 py-1 rounded-full bg-surface-container-highest text-on-surface-variant font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                Níveis normais (0)
+              </span>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<button class="px-3 py-1 rounded bg-surface-container hover:bg-primary hover:text-on-primary text-on-surface font-body-sm text-body-sm transition-colors" type="button">
+                Filtrar sessão
+              </button>
+</td>
+</tr>
+</tbody>
+<tfoot class="bg-surface-container-lowest font-body-sm text-body-sm text-on-surface font-semibold border-t-0">
+<tr>
+<td class="py-3 px-space-md font-headline-sm">Totais Consolidados</td>
+<td class="py-3 px-3 text-right font-label-numeric">369 SKUs</td>
+<td class="py-3 px-3 text-right font-label-numeric">1.832 un</td>
+<td class="py-3 px-3 text-right font-label-numeric text-primary font-bold">R$ 84.750,00</td>
+<td class="py-3 px-3 text-right font-label-numeric font-bold">R$ 168.420,00</td>
+<td class="py-3 px-3 text-right font-label-numeric text-primary font-bold">R$ 83.670,00</td>
+<td class="py-3 px-3 text-center font-label-code">100.0%</td>
+<td class="py-3 px-space-md">
+<span class="font-label-code text-label-code text-error font-bold">7 itens críticos</span>
+</td>
+<td class="py-3 px-space-md text-right">
+<button class="font-label-code text-label-code text-primary hover:underline" type="button">Ver Auditoria</button>
+</td>
+</tr>
+</tfoot>
+</table>
+</div>
+</div>
+<!-- Dedicated Action Plan: Urgência em Reposição (Estoque de Segurança) -->
+<div class="bg-surface-container rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-sm">
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 rounded-xl bg-error-container text-tertiary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-xl leading-none">emergency_home</span>
+</div>
+<div>
+<div class="flex items-center gap-space-xs">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">
+              Plano de Ação - Produtos que atingiram Estoque de Segurança
+            </h2>
+<span class="font-label-tag text-label-tag px-2 py-0.5 rounded-full bg-error-container text-tertiary-fixed font-semibold">
+              COMPRA URGENTE
+            </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Reposições imediatas calculadas pelo algoritmo de demanda média diária para evitar ruptura de venda nos próximos 7 dias.
+          </p>
+</div>
+</div>
+<!-- Bulk Reorder Button -->
+<button class="flex items-center justify-center gap-2 h-10 px-4 rounded-lg bg-primary text-on-primary font-body-sm text-body-sm font-semibold hover:brightness-110 active:scale-95 transition-all shadow-md" type="button">
+<span class="material-symbols-outlined text-lg leading-none">shopping_cart_checkout</span>
+        Gerar Pedidos de Compra em Lote
+      </button>
+</div>
+<!-- Reorder Items Table -->
+<div class="overflow-x-auto rounded-lg bg-surface-container-low">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead class="bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code uppercase tracking-wider">
+<tr>
+<th class="py-3 px-space-md font-semibold">SKU / Produto</th>
+<th class="py-3 px-3 font-semibold">Sessão</th>
+<th class="py-3 px-3 text-center font-semibold">Atual / Mínimo</th>
+<th class="py-3 px-3 text-center font-semibold">Sugestão Compra</th>
+<th class="py-3 px-3 text-right font-semibold">Custo Estimado</th>
+<th class="py-3 px-space-md font-semibold">Fornecedor Credenciado</th>
+<th class="py-3 px-space-md text-right font-semibold">Ação Rápida</th>
+</tr>
+</thead>
+<tbody class="divide-y-0">
+<!-- Item 1: Vaporizador Z-Flow -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-lg object-cover bg-surface-container-highest shrink-0" data-alt="Black matte handheld herb vaporizer with discrete digital OLED display placed over obsidian textured metal background, luxury aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPunu2d32-lOPcEZNU0OASFmcsRThYWAfLVigu-PFYtfHz214FhG1ZnShIE64Jo5wBEVB5bW5FgkPW_j6TdfbM2n0-PgGuRCHlx3Rb03yoHk8ByJOKOol0xBjFNub_xXMNHHXVPf35gfgGJtLMmNECqyYMiW9Pj_c6aSWCv-bvgGKhc_DQVrx5guojF_8l_UiUkPD7HqluQw5EsIIgA6_WRp4OLTb0krjEXze1-JAqSrtDONR__3AGdA">
+<div class="min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-label-code text-label-code text-primary font-mono">VP-9021</span>
+<span class="font-label-tag text-label-tag px-1.5 py-0.2 rounded bg-surface-container-highest text-on-surface-variant">BARCODE: 7899120341</span>
+</div>
+<span class="font-body-md text-body-md font-semibold text-on-surface block truncate">Vaporizador Ervas Z-Flow V3 Convecção</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-3">
+<span class="font-label-tag text-label-tag px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant">
+                Vaporizadores
+              </span>
+</td>
+<td class="py-3.5 px-3 text-center">
+<div class="flex items-center justify-center gap-1 font-label-numeric font-semibold">
+<span class="text-error">1 un</span>
+<span class="text-on-surface-variant font-normal">/</span>
+<span class="text-on-surface-variant">8 un</span>
+</div>
+<span class="font-label-code text-label-code text-error block">Ruptura em 2 dias</span>
+</td>
+<td class="py-3.5 px-3 text-center">
+<span class="font-label-numeric text-primary font-bold px-2 py-0.5 rounded bg-primary/10">
+                +15 un
+              </span>
+</td>
+<td class="py-3.5 px-3 text-right font-label-numeric font-medium text-on-surface">
+              R$ 4.350,00
+            </td>
+<td class="py-3.5 px-space-md">
+<div class="flex flex-col min-w-0">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface truncate">AeroTech Distr. Ltda</span>
+<span class="font-label-code text-label-code text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs leading-none text-primary">call</span>
+                  (11) 98412-4400 · contato@aerotech.com.br
+                </span>
+</div>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<button class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-surface-container hover:bg-primary hover:text-on-primary text-on-surface font-body-sm text-body-sm font-medium transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-sm leading-none">send</span> Pedir
+              </button>
+</td>
+</tr>
+<!-- Item 2: Bong Beaker Ice 7mm -->
+<tr class="hover:bg-surface-container transition-colors bg-surface-container-high/20">
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-lg object-cover bg-surface-container-highest shrink-0" data-alt="Heavy 7mm thick borosilicate glass beaker water bong with green frosted percolator details on dark slate studio table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOYHlVyPKosYdhVIO1Zjfn6V3qJBAmjR1gOdqxYrt5-_LYLY0dhnqvgzUm2O2kdjSK1SCHuSndfTI_YF4QaLpYJ1l4zepMQEpdbNxGU30HDVVhhaAbPQja2nlaTr4DGAa5CcofFm0ktTIbhdhmLzG_e4AZlgjwvbeZueCkjaKagUV2xnJ6rHLsJlJJtyYICDR2PLrBjnXAmbBHnpU1C3Hr2-a6bEli6DZGwL5fJP1WE87B0WSxzczGSQ">
+<div class="min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-label-code text-label-code text-primary font-mono">BG-4412</span>
+<span class="font-label-tag text-label-tag px-1.5 py-0.2 rounded bg-surface-container-highest text-on-surface-variant">BARCODE: 7899120488</span>
+</div>
+<span class="font-body-md text-body-md font-semibold text-on-surface block truncate">Bong Beaker Borossilicato 7mm Ice 35cm</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-3">
+<span class="font-label-tag text-label-tag px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant">
+                Bongs &amp; Vidrarias
+              </span>
+</td>
+<td class="py-3.5 px-3 text-center">
+<div class="flex items-center justify-center gap-1 font-label-numeric font-semibold">
+<span class="text-error">2 un</span>
+<span class="text-on-surface-variant font-normal">/</span>
+<span class="text-on-surface-variant">10 un</span>
+</div>
+<span class="font-label-code text-label-code text-error block">Ruptura em 3 dias</span>
+</td>
+<td class="py-3.5 px-3 text-center">
+<span class="font-label-numeric text-primary font-bold px-2 py-0.5 rounded bg-primary/10">
+                +12 un
+              </span>
+</td>
+<td class="py-3.5 px-3 text-right font-label-numeric font-medium text-on-surface">
+              R$ 1.920,00
+            </td>
+<td class="py-3.5 px-space-md">
+<div class="flex flex-col min-w-0">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface truncate">GlassArt Importadora SP</span>
+<span class="font-label-code text-label-code text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs leading-none text-primary">call</span>
+                  (11) 97103-9921 · pedidos@glassart.com.br
+                </span>
+</div>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<button class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-surface-container hover:bg-primary hover:text-on-primary text-on-surface font-body-sm text-body-sm font-medium transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-sm leading-none">send</span> Pedir
+              </button>
+</td>
+</tr>
+<!-- Item 3: Tabaco Virginia Orgânico 35g -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-lg object-cover bg-surface-container-highest shrink-0" data-alt="Kraft paper pouch packaging of organic golden Virginia rolling tobacco against a dark wooden surface with golden ambient backlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmUD5ce1N4uRkCULBO3NHaaaVOVY2qTMDzuLwzng6R0iDzh3CG7ceUgiDiAG72qRmqy5XgaHM-MYthxjgMHULq0tw7nFJT2QR_W5M-Gwq9WhaksRxSnk_xV4syYVya89jd5oPrVQqqJkGe_9C8dJev0CunkKOHi48h-LSgPRjRKgfeJ5j2BlBX8XUCYeIvu3P17pF2lKKBbWGe8I53JlV0KoC_lG39txxjLZTdHG70WwFPH8iFrhJB6Q">
+<div class="min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-label-code text-label-code text-primary font-mono">TB-1029</span>
+<span class="font-label-tag text-label-tag px-1.5 py-0.2 rounded bg-surface-container-highest text-on-surface-variant">BARCODE: 7898831002</span>
+</div>
+<span class="font-body-md text-body-md font-semibold text-on-surface block truncate">Tabaco Fumo Fino Virginia Blend Gold 35g</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-3">
+<span class="font-label-tag text-label-tag px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant">
+                Tabacos &amp; Blunts
+              </span>
+</td>
+<td class="py-3.5 px-3 text-center">
+<div class="flex items-center justify-center gap-1 font-label-numeric font-semibold">
+<span class="text-error">4 un</span>
+<span class="text-on-surface-variant font-normal">/</span>
+<span class="text-on-surface-variant">30 un</span>
+</div>
+<span class="font-label-code text-label-code text-error block">Ruptura iminente (amanhã)</span>
+</td>
+<td class="py-3.5 px-3 text-center">
+<span class="font-label-numeric text-primary font-bold px-2 py-0.5 rounded bg-primary/10">
+                +60 un
+              </span>
+</td>
+<td class="py-3.5 px-3 text-right font-label-numeric font-medium text-on-surface">
+              R$ 660,00
+            </td>
+<td class="py-3.5 px-space-md">
+<div class="flex flex-col min-w-0">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface truncate">Tabacaria Sul Distribuidora</span>
+<span class="font-label-code text-label-code text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs leading-none text-primary">call</span>
+                  (41) 3342-1190 · vendas@tabacariasul.com
+                </span>
+</div>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<button class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-surface-container hover:bg-primary hover:text-on-primary text-on-surface font-body-sm text-body-sm font-medium transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-sm leading-none">send</span> Pedir
+              </button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Quick Footer Note for Logistics -->
+<div class="flex flex-col sm:flex-row sm:items-center gap-space-sm pt-space-xs text-on-surface-variant font-body-sm text-body-sm justify-end">
+
+<div class="flex items-center gap-space-xs font-label-code text-label-code">
+<span class="">Custo de reposição total sugerida:</span>
+<span class="font-label-numeric text-primary font-semibold text-body-md">R$ 6.930,00</span>
+</div>
+</div>
+</div>
+</div></main></div>
+
+</body></html>

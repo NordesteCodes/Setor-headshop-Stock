@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR" style=""><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"secondary-fixed-dim":"#ffb95f","on-secondary-fixed-variant":"#653e00","surface-variant":"#32353a","outline-variant":"#3c4a42","on-tertiary-fixed":"#410004","error":"#ffb4ab","surface-container-low":"#191c21","on-error":"#690005","on-tertiary":"#68000a","primary-container":"#10b981","tertiary-fixed-dim":"#ffb3ad","on-secondary":"#472a00","outline":"#86948a","inverse-on-surface":"#2e3036","surface-container-highest":"#32353a","tertiary-fixed":"#ffdad7","surface-container":"#1d2025","inverse-primary":"#006c49","primary-fixed-dim":"#4edea3","on-background":"#e1e2e9","on-primary":"#003824","on-secondary-fixed":"#2a1700","primary":"#4edea3","on-secondary-container":"#5b3800","on-primary-fixed":"#002113","on-primary-fixed-variant":"#005236","background":"#101418","tertiary":"#ffb3ad","on-surface-variant":"#bbcabf","surface-tint":"#4edea3","on-error-container":"#ffdad6","on-tertiary-container":"#79000e","surface-container-high":"#272a2f","error-container":"#93000a","secondary":"#ffb95f","tertiary-container":"#ff7a73","secondary-fixed":"#ffddb8","on-tertiary-fixed-variant":"#930013","surface-dim":"#101418","surface":"#101418","on-surface":"#e1e2e9","inverse-surface":"#e1e2e9","surface-container-lowest":"#0b0e13","surface-bright":"#36393f","secondary-container":"#ee9800","on-primary-container":"#00422b","primary-fixed":"#6ffbbe"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-lg":"1.25rem","margin-desktop":"2rem","space-md":"0.75rem","space-xl":"2rem","margin":"1rem","gutter":"1rem","space-xs":"0.25rem","space-sm":"0.5rem","gutter-desktop":"1.5rem"},"fontFamily":{"body-md":["Geist"],"headline-sm":["Geist"],"label-tag":["Geist"],"headline-lg-mobile":["Geist"],"headline-lg":["Geist"],"label-numeric":["JetBrains Mono"],"headline-md":["Geist"],"body-sm":["Geist"],"headline-xl":["Geist"],"headline-xl-mobile":["Geist"],"label-code":["JetBrains Mono"],"body-lg":["Geist"]},"fontSize":{"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"headline-sm":["16px",{"lineHeight":"24px","fontWeight":"500"}],"label-tag":["11px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"600"}],"headline-lg-mobile":["22px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-lg":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"600"}],"label-numeric":["13px",{"lineHeight":"18px","letterSpacing":"0.02em","fontWeight":"500"}],"headline-md":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"500"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"headline-xl":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-xl-mobile":["28px",{"lineHeight":"34px","letterSpacing":"-0.01em","fontWeight":"600"}],"label-code":["11px",{"lineHeight":"14px","letterSpacing":"0.05em","fontWeight":"500"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased min-h-screen"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-low flex flex-col z-50 shadow-[0_1px_8px_rgba(0,0,0,0.3)]"><div class="h-16 px-space-md flex items-center gap-space-sm bg-surface-container-low"><img alt="Obsidian Stock Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6X3oKzk7iMxdgUe53HuO7DWBb3OfPC_2RjXKctC4HydDFgJSsW4bljZgZHltoxokOxpjhT2yaRviFIrJurLLlZC3L4y3mUM6GiMwPPcknI95k6gWSE7DP20yJFRIvLorDEf8vD2aydNea2LLSzKcNwQI0K0GjRcpjH8fD2ylJZa2PxJyXW7XSZrkFXsGmjfEjWduIJHlINkSc74nRsIiyV8sZyW9zOMHWWGWclxtakqssGPdBB49ITQ"/><div class="flex flex-col min-w-0"><span class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate leading-none">Setor Headshop</span></div></div><div class="px-space-md py-space-xs"><div class="h-px w-full bg-outline-variant/30"></div></div><nav class="flex-1 px-space-sm py-space-sm flex flex-col gap-1 overflow-y-auto" data-active-classes="bg-primary-container text-on-primary-container font-semibold shadow-sm"><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg bg-primary-container text-on-primary-container font-semibold shadow-sm transition-colors" data-path="dashboard-inventario" href="#"><span class="material-symbols-outlined text-lg leading-none">dashboard</span><span class="font-body-md text-body-md">Dashboard &amp; Inventário</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="produtos" href="#"><span class="material-symbols-outlined text-lg leading-none">category</span><span class="font-body-md text-body-md">Produtos</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="cadastro-de-produto" href="#"><span class="material-symbols-outlined text-lg leading-none">add_box</span><span class="font-body-md text-body-md">Cadastro de Produto</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="entradas-saidas" href="#"><span class="material-symbols-outlined text-lg leading-none">swap_vert</span><span class="font-body-md text-body-md">Entradas &amp; Saídas</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="relatorios-sessoes" href="#"><span class="material-symbols-outlined text-lg leading-none">analytics</span><span class="font-body-md text-body-md">Relatórios &amp; Sessões</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="configuracoes-alertas" href="#"><span class="material-symbols-outlined text-lg leading-none">tune</span><span class="font-body-md text-body-md">Configurações &amp; Alertas</span></a></nav></aside><div class="pl-64 flex flex-col min-h-screen"><header class="fixed top-0 left-64 right-0 h-16 z-40 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.2)]"><div class="h-16 w-full px-gutter-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-sm"><span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Setor Headshop</span></div><div class="flex-1 max-w-xl mx-space-md"><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-base leading-none pointer-events-none">search</span><input class="w-full h-9 pl-9 pr-14 bg-surface-container-low rounded-lg font-body-sm text-body-sm text-on-surface placeholder:text-on-surface-variant/60 focus:outline-none focus:ring-1 focus:ring-primary shadow-inner" placeholder="Buscar produto por nome, SKU ou código de barras..." type="text"/><div class="absolute right-2.5 flex items-center gap-1 pointer-events-none"><kbd class="font-label-code text-label-code px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant">Ctrl</kbd><kbd class="font-label-code text-label-code px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant">K</kbd></div></div></div><div class="flex items-center gap-space-sm"><div class="flex items-center bg-surface-container-low p-0.5 rounded-full"><button class="flex items-center justify-center w-7 h-7 rounded-full bg-surface-container-highest text-primary transition-all" title="Modo Obsidian Dark" type="button"><span class="material-symbols-outlined text-sm leading-none">dark_mode</span></button><button class="flex items-center justify-center w-7 h-7 rounded-full text-on-surface-variant hover:text-on-surface transition-all" title="Modo Slate Claro" type="button"><span class="material-symbols-outlined text-sm leading-none">light_mode</span></button></div><div class="relative"><button class="relative p-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" title="Notificações e Alertas" type="button"><span class="material-symbols-outlined text-xl leading-none">notifications</span><span class="absolute top-1.5 right-1.5 flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-error opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-error"></span></span></button><div class="absolute right-0 top-full mt-2 w-[460px] max-w-[90vw] bg-surface-container-low rounded-xl shadow-2xl border border-outline-variant/40 z-50 overflow-hidden flex flex-col font-body-sm text-on-surface"><div class="p-space-md bg-surface-container-low border-b border-outline-variant/30 flex items-center justify-between gap-2"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-xl">notifications_active</span><h3 class="font-headline-sm text-sm font-semibold text-on-surface">Notificações &amp; Alertas de Estoque</h3><span class="px-2 py-0.5 rounded-full bg-error-container/40 text-error font-label-tag text-[10px] font-bold uppercase tracking-wider">4 novas</span></div><button class="text-xs text-primary hover:underline font-medium transition-colors cursor-pointer" type="button">Marcar todas como lidas</button></div><div class="flex items-center gap-1.5 px-space-md py-2 bg-surface-container-lowest border-b border-outline-variant/20 overflow-x-auto text-xs"><button class="px-2.5 py-1 rounded-md bg-primary-container text-on-primary-container font-semibold transition-colors flex items-center gap-1 shrink-0">Todas <span class="font-label-numeric font-normal opacity-90">(6)</span></button><button class="px-2.5 py-1 rounded-md bg-surface-container-high hover:bg-surface-container-highest text-error font-medium transition-colors flex items-center gap-1 shrink-0"><span class="h-1.5 w-1.5 rounded-full bg-error inline-block"></span> Crítico / Reposição <span class="font-label-numeric font-bold">(2)</span></button><button class="px-2.5 py-1 rounded-md bg-surface-container-high hover:bg-surface-container-highest text-primary font-medium transition-colors flex items-center gap-1 shrink-0"><span class="h-1.5 w-1.5 rounded-full bg-primary inline-block"></span> Vendas / Baixas <span class="font-label-numeric font-bold">(2)</span></button><button class="px-2.5 py-1 rounded-md bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant font-medium transition-colors flex items-center gap-1 shrink-0">Ajustes <span class="font-label-numeric">(2)</span></button></div><div class="max-h-[390px] overflow-y-auto divide-y divide-outline-variant/20 bg-surface-container-low"><div class="p-3 hover:bg-surface-container transition-colors flex items-start gap-3 bg-error-container/10"><div class="w-8 h-8 rounded-lg bg-error-container/30 text-error flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined text-base">warning</span></div><div class="flex-1 min-w-0 flex flex-col gap-0.5"><div class="flex items-center justify-between gap-1"><span class="font-headline-sm text-xs font-semibold text-on-surface truncate">Pipe Bowl Vidro Borossilicato 14mm</span><span class="font-label-tag text-[10px] px-1.5 py-0.2 rounded bg-error text-surface font-bold shrink-0">CRÍTICO</span></div><div class="flex items-center gap-1 font-label-code text-[11px] text-on-surface-variant"><span class="bg-surface-container px-1 py-0.2 rounded">GLSS-PIP-14PR</span><span class="text-error font-medium">Restam apenas 1 un</span><span class="opacity-60">(Mín: 8)</span></div><p class="text-xs text-on-surface-variant mt-0.5"><strong class="text-error">12 unidades removidas</strong> (venda balcão)</p><div class="flex items-center gap-1 text-[11px] text-on-surface-variant/70 font-label-numeric mt-1"><span class="material-symbols-outlined text-xs">schedule</span><span>Última vez alterado em: 14/05/2024 às 16:40</span></div></div></div><div class="p-3 hover:bg-surface-container transition-colors flex items-start gap-3"><div class="w-8 h-8 rounded-lg bg-secondary-container/20 text-secondary-fixed-dim flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined text-base">shopping_cart_checkout</span></div><div class="flex-1 min-w-0 flex flex-col gap-0.5"><div class="flex items-center justify-between gap-1"><span class="font-headline-sm text-xs font-semibold text-on-surface truncate">Caixa Seda RAW Black King Size Slim c/ 50</span><span class="font-label-numeric text-[11px] text-primary font-medium shrink-0">Saldo: 42 cx</span></div><div class="flex items-center gap-1 font-label-code text-[11px] text-on-surface-variant"><span class="bg-surface-container px-1 py-0.2 rounded">RAW-BLK-KS50</span></div><p class="text-xs text-on-surface-variant mt-0.5"><span class="text-secondary-fixed-dim font-medium">5 caixas removidas</span> (vendidas)</p><div class="flex items-center gap-1 text-[11px] text-on-surface-variant/70 font-label-numeric mt-1"><span class="material-symbols-outlined text-xs">schedule</span><span>Última vez alterado em: 14/05/2024 às 16:15</span></div></div></div><div class="p-3 hover:bg-surface-container transition-colors flex items-start gap-3"><div class="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined text-base">input</span></div><div class="flex-1 min-w-0 flex flex-col gap-0.5"><div class="flex items-center justify-between gap-1"><span class="font-headline-sm text-xs font-semibold text-on-surface truncate">Bong Percolator Squadafum 25cm Borossilicato</span><span class="font-label-tag text-[10px] px-1.5 py-0.2 rounded bg-primary/20 text-primary font-semibold shrink-0">ENTRADA</span></div><div class="flex items-center gap-1 font-label-code text-[11px] text-on-surface-variant"><span class="bg-surface-container px-1 py-0.2 rounded">BNG-SQD-04</span><span>• Fornec. Squadafum NF 9842</span></div><p class="text-xs text-primary font-medium mt-0.5">+10 unidades acrescentadas no estoque</p><div class="flex items-center gap-1 text-[11px] text-on-surface-variant/70 font-label-numeric mt-1"><span class="material-symbols-outlined text-xs">schedule</span><span>Última vez alterado em: 14/05/2024 às 14:30</span></div></div></div><div class="p-3 hover:bg-surface-container transition-colors flex items-start gap-3 bg-error-container/10"><div class="w-8 h-8 rounded-lg bg-error-container/30 text-error flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined text-base">inventory</span></div><div class="flex-1 min-w-0 flex flex-col gap-0.5"><div class="flex items-center justify-between gap-1"><span class="font-headline-sm text-xs font-semibold text-on-surface truncate">Tabaco Fumo Fino Virginia Blend Gold 25g</span><span class="font-label-tag text-[10px] px-1.5 py-0.2 rounded bg-error text-surface font-bold shrink-0">RUPTURA</span></div><div class="flex items-center gap-1 font-label-code text-[11px] text-on-surface-variant"><span class="bg-surface-container px-1 py-0.2 rounded">TB-1029</span><span class="text-error font-medium">Restam apenas 4 un</span><span class="opacity-60">(Mín: 30)</span></div><p class="text-xs text-on-surface-variant mt-0.5"><strong class="text-error">26 unidades removidas</strong> (venda balcão / distrib.)</p><div class="flex items-center gap-1 text-[11px] text-on-surface-variant/70 font-label-numeric mt-1"><span class="material-symbols-outlined text-xs">schedule</span><span>Última vez alterado em: 14/05/2024 às 11:20</span></div></div></div><div class="p-3 hover:bg-surface-container transition-colors flex items-start gap-3"><div class="w-8 h-8 rounded-lg bg-surface-container-highest text-on-surface-variant flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined text-base">shopping_cart_checkout</span></div><div class="flex-1 min-w-0 flex flex-col gap-0.5"><div class="flex items-center justify-between gap-1"><span class="font-headline-sm text-xs font-semibold text-on-surface truncate">Dichavador Kings Alumínio CNC 4 Partes 50mm</span><span class="font-label-numeric text-[11px] text-primary font-medium shrink-0">Saldo: 34 un</span></div><div class="flex items-center gap-1 font-label-code text-[11px] text-on-surface-variant"><span class="bg-surface-container px-1 py-0.2 rounded">DCH-KNG-50GF</span></div><p class="text-xs text-on-surface-variant mt-0.5"><span class="text-secondary-fixed-dim font-medium">3 unidades removidas</span> (vendidas)</p><div class="flex items-center gap-1 text-[11px] text-on-surface-variant/70 font-label-numeric mt-1"><span class="material-symbols-outlined text-xs">schedule</span><span>Última vez alterado em: 13/05/2024 às 19:05</span></div></div></div><div class="p-3 hover:bg-surface-container transition-colors flex items-start gap-3"><div class="w-8 h-8 rounded-lg bg-surface-container-highest text-primary flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined text-base">tune</span></div><div class="flex-1 min-w-0 flex flex-col gap-0.5"><div class="flex items-center justify-between gap-1"><span class="font-headline-sm text-xs font-semibold text-on-surface truncate">Isqueiro Clipper Large Raw Logo Recarregável</span><span class="font-label-tag text-[10px] px-1.5 py-0.2 rounded bg-surface-container-highest text-on-surface font-medium shrink-0">AJUSTE</span></div><div class="flex items-center gap-1 font-label-code text-[11px] text-on-surface-variant"><span class="bg-surface-container px-1 py-0.2 rounded">ISQ-CLP-RAW</span></div><p class="text-xs text-primary font-medium mt-0.5">+2 unidades acrescentadas no estoque (Ajuste de conferência física)</p><div class="flex items-center gap-1 text-[11px] text-on-surface-variant/70 font-label-numeric mt-1"><span class="material-symbols-outlined text-xs">schedule</span><span>Última vez alterado em: 12/05/2024 às 21:30</span></div></div></div></div><div class="p-3 bg-surface-container-lowest border-t border-outline-variant/30 flex items-center justify-between"><a class="flex items-center justify-center gap-1.5 w-full py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-xs font-semibold text-primary transition-colors" data-path="entradas-saidas" href="#"><span class="material-symbols-outlined text-sm">swap_vert</span><span>Ver histórico completo de movimentações (Entradas &amp; Saídas)</span></a></div></div></div></div></div></header><main class="relative pt-16 bg-surface flex-1 w-full px-gutter-desktop py-space-lg"><div class="flex flex-col w-full">
+<script>
+    (function syncNavigation() {
+      const activePath = 'produtos';
+      document.querySelectorAll('aside nav a').forEach(link => {
+        if (link.getAttribute('data-path') === activePath) {
+          link.className = 'flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg bg-primary-container text-on-primary-container font-semibold shadow-sm transition-colors';
+        } else {
+          link.className = 'flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors';
+        }
+      });
+    })();
+  </script>
+<section class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-lg">
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs text-on-surface-variant mb-1">
+<span class="font-label-tag text-label-tag uppercase tracking-wider text-primary">Estoque Central</span>
+<span class="font-label-code text-label-code opacity-40">/</span>
+<span class="font-label-tag text-label-tag text-on-surface-variant">Catálogo Físico</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Produtos Cadastrados</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Listagem e consulta detalhada de itens em estoque interno</p>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm">
+<button class="flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-surface-container-high text-on-surface hover:bg-surface-container-highest transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-base text-primary">barcode_scanner</span>
+<span class="font-body-sm text-body-sm font-medium">Buscar por Código / Leitor</span>
+</button>
+<button class="flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-surface-container-high text-on-surface hover:bg-surface-container-highest transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-base text-on-surface-variant">file_download</span>
+<span class="font-body-sm text-body-sm font-medium">Exportar Lista (CSV)</span>
+</button>
+<a class="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-primary-container text-on-primary-container font-medium hover:brightness-110 active:brightness-95 transition-all shadow-md" data-path="cadastro-de-produto" href="#">
+<span class="material-symbols-outlined text-base">add</span>
+<span class="font-body-sm text-body-sm font-semibold">+ Novo Produto</span>
+</a>
+</div>
+</section>
+<section class="bg-surface-container-low rounded-xl p-space-md mb-space-md shadow-sm flex flex-col gap-space-sm">
+<div class="flex flex-col lg:flex-row items-stretch lg:items-center gap-space-sm">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-base pointer-events-none">search</span>
+<input class="w-full h-10 pl-9 pr-24 bg-surface-container rounded-lg font-body-sm text-body-sm text-on-surface placeholder:text-on-surface-variant/50 focus:outline-none focus:ring-1 focus:ring-primary shadow-inner" id="productSearchInput" placeholder="Buscar por nome do produto, SKU interno, tag..." type="text"/>
+<div class="absolute right-2.5 top-1/2 -translate-y-1/2 flex items-center gap-1 pointer-events-none">
+<kbd class="font-label-code text-label-code px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant">Ctrl</kbd>
+<kbd class="font-label-code text-label-code px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant">K</kbd>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-sm lg:w-auto">
+<div class="relative">
+<select class="w-full h-10 pl-3 pr-8 bg-surface-container rounded-lg font-body-sm text-body-sm text-on-surface appearance-none focus:outline-none focus:ring-1 focus:ring-primary cursor-pointer">
+<option value="">Todas as Sessões</option>
+<option value="sedas">Sedas &amp; Piteiras</option>
+<option value="bongs">Bongs &amp; Vidrarias</option>
+<option value="vapes">Vaporizadores &amp; Pods</option>
+<option value="dichavadores">Dichavadores &amp; Cuias</option>
+<option value="tabacos">Tabacos &amp; Blunts</option>
+<option value="acessorios">Acessórios &amp; Maçaricos</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-on-surface-variant text-base pointer-events-none">expand_more</span>
+</div>
+<div class="relative">
+<select class="w-full h-10 pl-3 pr-8 bg-surface-container rounded-lg font-body-sm text-body-sm text-on-surface appearance-none focus:outline-none focus:ring-1 focus:ring-primary cursor-pointer">
+<option value="">Todos os Status</option>
+<option value="normal">Normal / Estável</option>
+<option value="baixo">Baixo Estoque</option>
+<option value="critico">Crítico / Reposição</option>
+<option value="zerado">Estoque Zerado</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-on-surface-variant text-base pointer-events-none">expand_more</span>
+</div>
+<div class="relative">
+<select class="w-full h-10 pl-3 pr-8 bg-surface-container rounded-lg font-body-sm text-body-sm text-on-surface appearance-none focus:outline-none focus:ring-1 focus:ring-primary cursor-pointer">
+<option value="az">Nome (A-Z)</option>
+<option value="za">Nome (Z-A)</option>
+<option value="qtd_desc">Maior Quantidade</option>
+<option value="qtd_asc">Menor Quantidade</option>
+<option value="custo_desc">Maior Valor de Custo</option>
+<option value="venda_desc">Maior Valor de Venda</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-on-surface-variant text-base pointer-events-none">sort</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1 text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span class="h-2 w-2 rounded-full bg-primary inline-block"></span>
+<span class="font-body-sm text-body-sm">Mostrando <strong class="text-on-surface font-semibold">1 a 10</strong> de <strong class="text-on-surface font-semibold">342</strong> produtos cadastrados</span>
+</div>
+<div class="hidden sm:flex items-center gap-2 font-label-code text-label-code text-on-surface-variant">
+<span>DEPÓSITO PRINCIPAL: SETOR-01</span>
+</div>
+</div>
+</section>
+<div class="w-full bg-surface-container-low rounded-xl shadow-lg overflow-hidden flex flex-col">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse min-w-[1100px]">
+<thead>
+<tr class="bg-surface-container-lowest text-on-surface-variant font-label-tag text-label-tag uppercase tracking-wider">
+<th class="py-3 px-4 w-72">Produto / Identificador</th>
+<th class="py-3 px-3">Sessão</th>
+<th class="py-3 px-3">Localização</th>
+<th class="py-3 px-3 w-44">Estoque vs Mín</th>
+<th class="py-3 px-3">Status</th>
+<th class="py-3 px-3 text-right">Custo Unit.</th>
+<th class="py-3 px-3 text-right">Venda Unit.</th>
+<th class="py-3 px-3 text-right">Margem Líq.</th>
+<th class="py-3 px-3 text-right">Total em Estoque</th>
+<th class="py-3 px-4 text-center">Ações</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container font-body-sm text-body-sm text-on-surface">
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex-shrink-0 flex items-center justify-center text-primary group-hover:scale-105 transition-transform overflow-hidden">
+<span class="material-symbols-outlined text-xl">water_bottle</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-body-md font-medium text-on-surface truncate">Bong Percolator Squadafum 25cm Borossilicato</span>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="font-label-code text-label-code text-on-surface-variant bg-surface-container px-1.5 py-0.5 rounded">BNG-SQD-04</span>
+<span class="font-label-code text-label-code text-on-surface-variant/70">789856123401</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<span class="font-label-tag text-label-tag px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant inline-block">Bongs &amp; Vidrarias</span>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-1 font-label-code text-label-code text-on-surface-variant">
+<span class="material-symbols-outlined text-sm text-outline">shelves</span>
+<span>Prateleira A-3</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center font-label-numeric text-label-numeric">
+<span class="font-semibold text-primary">18 un</span>
+<span class="text-on-surface-variant/70 text-xs">Mín: 10</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 100%;"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<span class="font-label-tag text-label-tag px-2 py-1 rounded bg-primary/10 text-primary font-medium inline-flex items-center gap-1">
+<span class="h-1.5 w-1.5 rounded-full bg-primary"></span>
+                Estável
+              </span>
+</td>
+<td class="py-3 px-3 text-right font-label-numeric text-label-numeric text-on-surface-variant">
+              R$ 130,00
+            </td>
+<td class="py-3 px-3 text-right font-label-numeric text-label-numeric font-semibold text-on-surface">
+              R$ 280,00
+            </td>
+<td class="py-3 px-3 text-right font-label-numeric text-label-numeric text-primary">
+              53,5% <span class="text-xs text-on-surface-variant block">+R$ 150,00</span>
+</td>
+<td class="py-3 px-3 text-right font-label-numeric text-label-numeric font-bold text-on-surface">
+              R$ 2.340,00
+            </td>
+<td class="py-3 px-4">
+<div class="flex items-center justify-center gap-1">
+<button class="p-1 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-primary transition-colors" title="Ajuste Rápido (+/-)">
+<span class="material-symbols-outlined text-base">sync_alt</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-colors" title="Editar Produto">
+<span class="material-symbols-outlined text-base">edit</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-colors" title="Opções">
+<span class="material-symbols-outlined text-base">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex-shrink-0 flex items-center justify-center text-primary group-hover:scale-105 transition-transform overflow-hidden">
+<span class="material-symbols-outlined text-xl">layers</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-body-md font-medium text-on-surface truncate">Caixa Seda RAW Black King Size Slim c/ 50</span>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="font-label-code text-label-code text-on-surface-variant bg-surface-container px-1.5 py-0.5 rounded">RAW-BLK-KS50</span>
+<span class="font-label-code text-label-code text-on-surface-variant/70">716165281902</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<span class="font-label-tag text-label-tag px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant inline-block">Sedas &amp; Piteiras</span>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-1 font-label-code text-label-code text-on-surface-variant">
+<span class="material-symbols-outlined text-sm text-outline">shelves</span>
+<span>Prateleira B-1</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center font-label-numeric text-label-numeric">
+<span class="font-semibold text-primary">42 cx</span>
+<span class="text-on-surface-variant/70 text-xs">Mín: 15</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 100%;"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<span class="font-label-tag text-label-tag px-2 py-1 rounded bg-primary/10 text-primary font-medium inline-flex items-center gap-1">
+<span class="h-1.5 w-1.5 rounded-full bg-primary"></span>
+                Estável
+              </span>
+</td>
+<td class="py-3 px-3 text-right font-label-numeric text-label-numeric text-on-surface-variant">
+              R$ 145,00
+            </td>
+<td class="py-3 px-3 text-right font-label-numeric text-label-numeric font-semibold text-on-surface">
+              R$ 240,00
+            </td>
+<td class="py-3 px-3 text-right font-label-numeric text-label-numeric text-primary">
+              39,6% <span class="text-xs text-on-surface-variant block">+R$ 95,00</span>
+</td>
+<td class="py-3 px-3 text-right font-label-numeric text-label-numeric font-bold text-on-surface">
+              R$ 6.090,00
+            </td>
+<td class="py-3 px-4">
+<div class="flex items-center justify-center gap-1">
+<button class="p-1 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-primary transition-colors" title="Ajuste Rápido (+/-)">
+<span class="material-symbols-outlined text-base">sync_alt</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-colors" title="Editar Produto">
+<span class="material-symbols-outlined text-base">edit</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-colors" title="Opções">
+<span class="material-symbols-outlined text-base">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex-shrink-0 flex items-center justify-center text-secondary-fixed-dim group-hover:scale-105 transition-transform overflow-hidden">
+<span class="material-symbols-outlined text-xl">air</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-body-md font-medium text-on-surface truncate">Vaporizador de Ervas Starry 4 XMax Condução</span>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="font-label-code text-label-code text-on-surface-variant bg-surface-container px-1.5 py-0.5 rounded">VAP-XMX-ST4B</span>
+<span class="font-label-code text-label-code text-on-surface-variant/70">697193233011</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<span class="font-label-tag text-label-tag px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant inline-block">Vaporizadores &amp; Pods</span>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-1 font-label-code text-label-code text-on-surface-variant">
+<span class="material-symbols-outlined text-sm text-secondary-fixed-dim">lock</span>
+<span>Vitrine Segura</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center font-label-numeric text-label-numeric">
+<span class="font-semibold text-secondary-fixed-dim">3 un</span>
+<span class="text-on-surface-variant/70 text-xs">Mín: 5</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary-fixed-dim h-full rounded-full" style="width: 60%;"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<span class="font-label-tag text-label-tag px-2 py-1 rounded bg-secondary-container/20 text-secondary-fixed-dim font-medium inline-flex items-center gap-1">
+<span class="h-1.5 w-1.5 rounded-full bg-secondary-fixed-dim"></span>
+                Atenção
+              </span>
+</td>
+<td class="py-3 px-3 text-right font-label-numeric text-label-numeric text-on-surface-variant">
+              R$ 380,00
+            </td>
+<td class="py-3 px-3 text-right font-label-numeric text-label-numeric font-semibold text-on-surface">
+              R$ 690,00
+            </td>
+<td class="py-3 px-3 text-right font-label-numeric text-label-numeric text-primary">
+              44,9% <span class="text-xs text-on-surface-variant block">+R$ 310,00</span>
+</td>
+<td class="py-3 px-3 text-right font-label-numeric text-label-numeric font-bold text-on-surface">
+              R$ 1.140,00
+            </td>
+<td class="py-3 px-4">
+<div class="flex items-center justify-center gap-1">
+<button class="p-1 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-primary transition-colors" title="Ajuste Rápido (+/-)">
+<span class="material-symbols-outlined text-base">sync_alt</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-colors" title="Editar Produto">
+<span class="material-symbols-outlined text-base">edit</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-colors" title="Opções">
+<span class="material-symbols-outlined text-base">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex-shrink-0 flex items-center justify-center text-primary group-hover:scale-105 transition-transform overflow-hidden">
+<span class="material-symbols-outlined text-xl">blur_on</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-body-md font-medium text-on-surface truncate">Dichavador Kings Alumínio CNC 4 Partes 50mm Grafite</span>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="font-label-code text-label-code text-on-surface-variant bg-surface-container px-1.5 py-0.5 rounded">DCH-KNG-50GF</span>
+<span class="font-label-code text-label-code text-on-surface-variant/70">789895011244</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<span class="font-label-tag text-label-tag px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant inline-block">Dichavadores &amp; Cuias</span>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-1 font-label-code text-label-code text-on-surface-variant">
+<span class="material-symbols-outlined text-sm text-outline">inventory_2</span>
+<span>Gaveteiro 4</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center font-label-numeric text-label-numeric">
+<span class="font-semibold text-primary">34 un</span>
+<span class="text-on-surface-variant/70 text-xs">Mín: 12</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 100%;"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<span class="font-label-tag text-label-tag px-2 py-1 rounded bg-primary/10 text-primary font-medium inline-flex items-center gap-1">
+<span class="h-1.5 w-1.5 rounded-full bg-primary"></span>
+                Estável
+              </span>
+</td>
+<td class="py-3 px-3 text-right font-label-numeric text-label-numeric text-on-surface-variant">
+              R$ 28,00
+            </td>
+<td class="py-3 px-3 text-right font-label-numeric text-label-numeric font-semibold text-on-surface">
+              R$ 65,00
+            </td>
+<td class="py-3 px-3 text-right font-label-numeric text-label-numeric text-primary">
+              56,9% <span class="text-xs text-on-surface-variant block">+R$ 37,00</span>
+</td>
+<td class="py-3 px-3 text-right font-label-numeric text-label-numeric font-bold text-on-surface">
+              R$ 952,00
+            </td>
+<td class="py-3 px-4">
+<div class="flex items-center justify-center gap-1">
+<button class="p-1 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-primary transition-colors" title="Ajuste Rápido (+/-)">
+<span class="material-symbols-outlined text-base">sync_alt</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-colors" title="Editar Produto">
+<span class="material-symbols-outlined text-base">edit</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-colors" title="Opções">
+<span class="material-symbols-outlined text-base">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex-shrink-0 flex items-center justify-center text-secondary-fixed-dim group-hover:scale-105 transition-transform overflow-hidden">
+<span class="material-symbols-outlined text-xl">local_fire_department</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-body-md font-medium text-on-surface truncate">Isqueiro Clipper Large Raw Logo Recarregável c/ 48</span>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="font-label-code text-label-code text-on-surface-variant bg-surface-container px-1.5 py-0.5 rounded">ISQ-CLP-RAW</span>
+<span class="font-label-code text-label-code text-on-surface-variant/70">841276509923</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<span class="font-label-tag text-label-tag px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant inline-block">Acessórios &amp; Maçaricos</span>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-1 font-label-code text-label-code text-on-surface-variant">
+<span class="material-symbols-outlined text-sm text-outline">countertops</span>
+<span>Balcão 1</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center font-label-numeric text-label-numeric">
+<span class="font-semibold text-secondary-fixed-dim">8 cx</span>
+<span class="text-on-surface-variant/70 text-xs">Mín: 10</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary-fixed-dim h-full rounded-full" style="width: 80%;"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<span class="font-label-tag text-label-tag px-2 py-1 rounded bg-secondary-container/20 text-secondary-fixed-dim font-medium inline-flex items-center gap-1">
+<span class="h-1.5 w-1.5 rounded-full bg-secondary-fixed-dim"></span>
+                Atenção
+              </span>
+</td>
+<td class="py-3 px-3 text-right font-label-numeric text-label-numeric text-on-surface-variant">
+              R$ 110,00
+            </td>
+<td class="py-3 px-3 text-right font-label-numeric text-label-numeric font-semibold text-on-surface">
+              R$ 210,00
+            </td>
+<td class="py-3 px-3 text-right font-label-numeric text-label-numeric text-primary">
+              47,6% <span class="text-xs text-on-surface-variant block">+R$ 100,00</span>
+</td>
+<td class="py-3 px-3 text-right font-label-numeric text-label-numeric font-bold text-on-surface">
+              R$ 880,00
+            </td>
+<td class="py-3 px-4">
+<div class="flex items-center justify-center gap-1">
+<button class="p-1 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-primary transition-colors" title="Ajuste Rápido (+/-)">
+<span class="material-symbols-outlined text-base">sync_alt</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-colors" title="Editar Produto">
+<span class="material-symbols-outlined text-base">edit</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-colors" title="Opções">
+<span class="material-symbols-outlined text-base">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex-shrink-0 flex items-center justify-center text-error group-hover:scale-105 transition-transform overflow-hidden">
+<span class="material-symbols-outlined text-xl">science</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-body-md font-medium text-on-surface truncate">Pipe Bowl Vidro Borossilicato 14mm Espiral Purple</span>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="font-label-code text-label-code text-on-surface-variant bg-surface-container px-1.5 py-0.5 rounded">GLSS-PIP-14PR</span>
+<span class="font-label-code text-label-code text-on-surface-variant/70">789856123499</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<span class="font-label-tag text-label-tag px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant inline-block">Bongs &amp; Vidrarias</span>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-1 font-label-code text-label-code text-on-surface-variant">
+<span class="material-symbols-outlined text-sm text-outline">shelves</span>
+<span>Prateleira A-2</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center font-label-numeric text-label-numeric">
+<span class="font-semibold text-error">1 un</span>
+<span class="text-on-surface-variant/70 text-xs">Mín: 8</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden">
+<div class="bg-error h-full rounded-full" style="width: 12.5%;"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<span class="font-label-tag text-label-tag px-2 py-1 rounded bg-error-container/40 text-error font-medium inline-flex items-center gap-1">
+<span class="h-1.5 w-1.5 rounded-full bg-error"></span>
+                Crítico
+              </span>
+</td>
+<td class="py-3 px-3 text-right font-label-numeric text-label-numeric text-on-surface-variant">
+              R$ 22,00
+            </td>
+<td class="py-3 px-3 text-right font-label-numeric text-label-numeric font-semibold text-on-surface">
+              R$ 55,00
+            </td>
+<td class="py-3 px-3 text-right font-label-numeric text-label-numeric text-primary">
+              60,0% <span class="text-xs text-on-surface-variant block">+R$ 33,00</span>
+</td>
+<td class="py-3 px-3 text-right font-label-numeric text-label-numeric font-bold text-on-surface">
+              R$ 22,00
+            </td>
+<td class="py-3 px-4">
+<div class="flex items-center justify-center gap-1">
+<button class="p-1 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-primary transition-colors" title="Ajuste Rápido (+/-)">
+<span class="material-symbols-outlined text-base">sync_alt</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-colors" title="Editar Produto">
+<span class="material-symbols-outlined text-base">edit</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-colors" title="Opções">
+<span class="material-symbols-outlined text-base">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex-shrink-0 flex items-center justify-center text-error group-hover:scale-105 transition-transform overflow-hidden">
+<span class="material-symbols-outlined text-xl">grass</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-body-md font-medium text-on-surface truncate">Tabaco Fumo Fino Virginia Blend Gold 25g</span>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="font-label-code text-label-code text-on-surface-variant bg-surface-container px-1.5 py-0.5 rounded">TB-1029</span>
+<span class="font-label-code text-label-code text-on-surface-variant/70">789123456789</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<span class="font-label-tag text-label-tag px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant inline-block">Tabacos &amp; Blunts</span>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-1 font-label-code text-label-code text-on-surface-variant">
+<span class="material-symbols-outlined text-sm text-outline">archive</span>
+<span>Gaveta Tabacaria</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center font-label-numeric text-label-numeric">
+<span class="font-semibold text-error">4 un</span>
+<span class="text-on-surface-variant/70 text-xs">Mín: 30</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden">
+<div class="bg-error h-full rounded-full" style="width: 13.3%;"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<span class="font-label-tag text-label-tag px-2 py-1 rounded bg-error-container/40 text-error font-medium inline-flex items-center gap-1">
+<span class="h-1.5 w-1.5 rounded-full bg-error"></span>
+                Crítico
+              </span>
+</td>
+<td class="py-3 px-3 text-right font-label-numeric text-label-numeric text-on-surface-variant">
+              R$ 11,00
+            </td>
+<td class="py-3 px-3 text-right font-label-numeric text-label-numeric font-semibold text-on-surface">
+              R$ 22,00
+            </td>
+<td class="py-3 px-3 text-right font-label-numeric text-label-numeric text-primary">
+              50,0% <span class="text-xs text-on-surface-variant block">+R$ 11,00</span>
+</td>
+<td class="py-3 px-3 text-right font-label-numeric text-label-numeric font-bold text-on-surface">
+              R$ 44,00
+            </td>
+<td class="py-3 px-4">
+<div class="flex items-center justify-center gap-1">
+<button class="p-1 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-primary transition-colors" title="Ajuste Rápido (+/-)">
+<span class="material-symbols-outlined text-base">sync_alt</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-colors" title="Editar Produto">
+<span class="material-symbols-outlined text-base">edit</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-colors" title="Opções">
+<span class="material-symbols-outlined text-base">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex-shrink-0 flex items-center justify-center text-primary group-hover:scale-105 transition-transform overflow-hidden">
+<span class="material-symbols-outlined text-xl">palette</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-body-md font-medium text-on-surface truncate">Piteira de Vidro Yellow Finger Murano 6mm</span>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="font-label-code text-label-code text-on-surface-variant bg-surface-container px-1.5 py-0.5 rounded">PIT-YF-MUR6</span>
+<span class="font-label-code text-label-code text-on-surface-variant/70">789851120405</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<span class="font-label-tag text-label-tag px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant inline-block">Sedas &amp; Piteiras</span>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-1 font-label-code text-label-code text-on-surface-variant">
+<span class="material-symbols-outlined text-sm text-outline">shelves</span>
+<span>Prateleira B-3</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center font-label-numeric text-label-numeric">
+<span class="font-semibold text-primary">55 un</span>
+<span class="text-on-surface-variant/70 text-xs">Mín: 20</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 100%;"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<span class="font-label-tag text-label-tag px-2 py-1 rounded bg-primary/10 text-primary font-medium inline-flex items-center gap-1">
+<span class="h-1.5 w-1.5 rounded-full bg-primary"></span>
+                Estável
+              </span>
+</td>
+<td class="py-3 px-3 text-right font-label-numeric text-label-numeric text-on-surface-variant">
+              R$ 9,50
+            </td>
+<td class="py-3 px-3 text-right font-label-numeric text-label-numeric font-semibold text-on-surface">
+              R$ 25,00
+            </td>
+<td class="py-3 px-3 text-right font-label-numeric text-label-numeric text-primary">
+              62,0% <span class="text-xs text-on-surface-variant block">+R$ 15,50</span>
+</td>
+<td class="py-3 px-3 text-right font-label-numeric text-label-numeric font-bold text-on-surface">
+              R$ 522,50
+            </td>
+<td class="py-3 px-4">
+<div class="flex items-center justify-center gap-1">
+<button class="p-1 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-primary transition-colors" title="Ajuste Rápido (+/-)">
+<span class="material-symbols-outlined text-base">sync_alt</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-colors" title="Editar Produto">
+<span class="material-symbols-outlined text-base">edit</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-colors" title="Opções">
+<span class="material-symbols-outlined text-base">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex-shrink-0 flex items-center justify-center text-primary group-hover:scale-105 transition-transform overflow-hidden">
+<span class="material-symbols-outlined text-xl">all_inclusive</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-body-md font-medium text-on-surface truncate">Cuia de Silicone Squadafum Antiaderente Cura</span>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="font-label-code text-label-code text-on-surface-variant bg-surface-container px-1.5 py-0.5 rounded">CUI-SQD-SIL</span>
+<span class="font-label-code text-label-code text-on-surface-variant/70">789856120019</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<span class="font-label-tag text-label-tag px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant inline-block">Dichavadores &amp; Cuias</span>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-1 font-label-code text-label-code text-on-surface-variant">
+<span class="material-symbols-outlined text-sm text-outline">shelves</span>
+<span>Prateleira C-2</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center font-label-numeric text-label-numeric">
+<span class="font-semibold text-primary">19 un</span>
+<span class="text-on-surface-variant/70 text-xs">Mín: 10</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 100%;"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<span class="font-label-tag text-label-tag px-2 py-1 rounded bg-primary/10 text-primary font-medium inline-flex items-center gap-1">
+<span class="h-1.5 w-1.5 rounded-full bg-primary"></span>
+                Estável
+              </span>
+</td>
+<td class="py-3 px-3 text-right font-label-numeric text-label-numeric text-on-surface-variant">
+              R$ 12,00
+            </td>
+<td class="py-3 px-3 text-right font-label-numeric text-label-numeric font-semibold text-on-surface">
+              R$ 28,00
+            </td>
+<td class="py-3 px-3 text-right font-label-numeric text-label-numeric text-primary">
+              57,1% <span class="text-xs text-on-surface-variant block">+R$ 16,00</span>
+</td>
+<td class="py-3 px-3 text-right font-label-numeric text-label-numeric font-bold text-on-surface">
+              R$ 228,00
+            </td>
+<td class="py-3 px-4">
+<div class="flex items-center justify-center gap-1">
+<button class="p-1 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-primary transition-colors" title="Ajuste Rápido (+/-)">
+<span class="material-symbols-outlined text-base">sync_alt</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-colors" title="Editar Produto">
+<span class="material-symbols-outlined text-base">edit</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-colors" title="Opções">
+<span class="material-symbols-outlined text-base">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex-shrink-0 flex items-center justify-center text-primary group-hover:scale-105 transition-transform overflow-hidden">
+<span class="material-symbols-outlined text-xl">mode_heat</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-body-md font-medium text-on-surface truncate">Maçarico Honest 1 Chama Portátil c/ Trava</span>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="font-label-code text-label-code text-on-surface-variant bg-surface-container px-1.5 py-0.5 rounded">MAC-HNT-01</span>
+<span class="font-label-code text-label-code text-on-surface-variant/70">695501230008</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<span class="font-label-tag text-label-tag px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant inline-block">Acessórios &amp; Maçaricos</span>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-1 font-label-code text-label-code text-on-surface-variant">
+<span class="material-symbols-outlined text-sm text-outline">countertops</span>
+<span>Vitrine Balcão</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center font-label-numeric text-label-numeric">
+<span class="font-semibold text-primary">12 un</span>
+<span class="text-on-surface-variant/70 text-xs">Mín: 10</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 100%;"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<span class="font-label-tag text-label-tag px-2 py-1 rounded bg-primary/10 text-primary font-medium inline-flex items-center gap-1">
+<span class="h-1.5 w-1.5 rounded-full bg-primary"></span>
+                Estável
+              </span>
+</td>
+<td class="py-3 px-3 text-right font-label-numeric text-label-numeric text-on-surface-variant">
+              R$ 18,00
+            </td>
+<td class="py-3 px-3 text-right font-label-numeric text-label-numeric font-semibold text-on-surface">
+              R$ 42,00
+            </td>
+<td class="py-3 px-3 text-right font-label-numeric text-label-numeric text-primary">
+              57,1% <span class="text-xs text-on-surface-variant block">+R$ 24,00</span>
+</td>
+<td class="py-3 px-3 text-right font-label-numeric text-label-numeric font-bold text-on-surface">
+              R$ 216,00
+            </td>
+<td class="py-3 px-4">
+<div class="flex items-center justify-center gap-1">
+<button class="p-1 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-primary transition-colors" title="Ajuste Rápido (+/-)">
+<span class="material-symbols-outlined text-base">sync_alt</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-colors" title="Editar Produto">
+<span class="material-symbols-outlined text-base">edit</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-colors" title="Opções">
+<span class="material-symbols-outlined text-base">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-space-md bg-surface-container-lowest/80 flex flex-col md:flex-row items-center justify-between gap-space-md">
+<div class="flex flex-wrap items-center gap-x-4 gap-y-1 font-body-sm text-body-sm text-on-surface-variant">
+<span><strong class="text-on-surface font-medium">10</strong> itens listados</span>
+<span class="opacity-40">•</span>
+<span>Total de Peças: <strong class="text-on-surface font-label-numeric font-medium">196 un</strong></span>
+<span class="opacity-40">•</span>
+<span>Capital Investido: <strong class="text-on-surface font-label-numeric font-medium">R$ 12.434,50</strong></span>
+<span class="opacity-40">•</span>
+<span>Valor de Venda Total: <strong class="text-primary font-label-numeric font-semibold">R$ 24.320,00</strong></span>
+</div>
+<div class="flex items-center gap-1.5">
+<button class="p-1.5 rounded-lg bg-surface-container hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface disabled:opacity-40 transition-colors" disabled="" title="Página Anterior">
+<span class="material-symbols-outlined text-base">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-primary-container text-on-primary-container font-label-numeric text-label-numeric font-semibold shadow-sm">1</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container hover:bg-surface-container-highest text-on-surface font-label-numeric text-label-numeric transition-colors">2</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container hover:bg-surface-container-highest text-on-surface font-label-numeric text-label-numeric transition-colors">3</button>
+<span class="px-1 text-on-surface-variant font-label-code text-label-code">...</span>
+<button class="w-8 h-8 rounded-lg bg-surface-container hover:bg-surface-container-highest text-on-surface font-label-numeric text-label-numeric transition-colors">35</button>
+<button class="p-1.5 rounded-lg bg-surface-container hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-colors" title="Próxima Página">
+<span class="material-symbols-outlined text-base">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<script>
+    document.addEventListener('keydown', function(e) {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        const searchInput = document.getElementById('productSearchInput');
+        if (searchInput) {
+          searchInput.focus();
+          searchInput.select();
+        }
+      }
+    });
+  </script>
+</div></main></div>
+</body></html>
