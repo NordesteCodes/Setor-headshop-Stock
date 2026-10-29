@@ -37,3 +37,12 @@ O primeiro ensaio Playwright falhou por seletor de teste exato em um select; foi
 Não foram executados teste de carga, pentest, restauração de backup ou certificação de acessibilidade. Não há alegação de produção pronta. Entrega parcial, cancelamento/devolução, recuperação 2FA pela interface, exportações e integrações futuras estão descritos em OPERATIONS.md. Provisão de usuários é operacional, não uma tela administrativa.
 
 O build da imagem usa `-DskipTests`; a suíte foi executada separadamente em Java 21 com PostgreSQL real. Nenhum teste usa SQLite/H2 como substituto de PostgreSQL.
+
+## Sessões persistidas e carregamento — 29/10/2026
+
+- `powershell -NoProfile -ExecutionPolicy Bypass -File scripts/test.ps1`: Maven verify com BUILD SUCCESS, 29 testes, zero falhas/erros/ignorados, Java 21 e PostgreSQL 17 descartável via Docker/Testcontainers.
+- Novo teste HTTP com cookies reais validou CSRF, configuração TOTP entre duas instâncias, recuperação do desafio após reiniciar uma delas, autenticação compartilhada e logout. A primeira execução revelou uma referência de teste ao pool já fechado; corrigida para usar a instância reiniciada antes da execução completa aprovada.
+- Testes MVC existentes continuam usando MockHttpSession; apenas nessa classe a autoconfiguração JDBC da sessão é desativada. O teste HTTP novo usa a configuração de produção e a migração V6.
+- `npm run check` e `git diff --check`: aprovados (Git avisa apenas normalização LF/CRLF).
+- Dashboard vazio respondeu em 51 ms no ensaio HTTP local com servidor já iniciado. Essa medida não representa latência de produção, volume real nem inicialização a frio na Vercel. Não foi medida melhoria percentual.
+- Dashboard consolidado em três consultas, mantendo custos históricos corrigidos e reconhecimento após entrega/quitação; bootstrap do navegador consulta sessão e CSRF juntos. Publicação e validação no Supabase/Vercel permanecem pendentes.

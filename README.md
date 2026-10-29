@@ -74,7 +74,7 @@ A imagem local deve ter sido construída antes. Os testes criam contas sintétic
 
 - Contrato OpenAPI: `/v3/api-docs` (autenticado). Interface Swagger: `/swagger-ui/index.html`.
 - Health: `/actuator/health` (sem detalhes públicos).
-- API usa sessão e CSRF; obtenha token em `/api/auth/csrf`. Comandos exigem `Idempotency-Key` UUID, inclusive recebimentos e estornos.
+- API usa sessão persistida no PostgreSQL (migração V6), com 30 minutos de inatividade, e CSRF. `/api/auth/session` retorna identidade e token em uma requisição; `/api/auth/csrf` continua disponível. Comandos exigem `Idempotency-Key` UUID, inclusive recebimentos e estornos.
 - Flyway aplica migrações no início. Banco persiste no volume `inventory-manager_postgres-data`.
 - `docker compose stop` para parar; `docker compose start` para retornar. Não use `down -v` se quiser preservar dados.
 - Histórico financeiro acima de dois anos é arquivado logicamente por data, permanece consultável e compõe o saldo.

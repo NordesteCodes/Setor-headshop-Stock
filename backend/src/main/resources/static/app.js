@@ -457,8 +457,7 @@ function saleDrawer(s) {
 }
 
 async function productList(main) {
-    await lookups();
-    const r = await list('products');
+    const [, r] = await Promise.all([lookups(), list('products')]);
     records = r.items;
     const quantityIcon = filters.sort === 'quantity' ? '↓' : filters.sort === 'quantity-asc' ? '↑' : '↕';
     const sortButton = `<button class="sort-button" type="button" data-action="sort-quantity" aria-label="Ordenar quantidade ${filters.sort === 'quantity' ? 'do maior para o menor' : 'do menor para o maior'}">Quantidade <span aria-hidden="true">${quantityIcon}</span></button>`;
@@ -775,8 +774,8 @@ async function cashForm() {
     }));
 }
 
-async function loginScreen() {
-    csrf = await api('/auth/csrf');
+async function loginScreen(refreshCsrf = true) {
+    if (refreshCsrf || !csrf) csrf = await api('/auth/csrf');
     user = null;
     if (dialog.open) dialog.close();
     $('#app').innerHTML = `<section class="login panel"><p class="eyebrow">Setor Headshop</p><h1>Acesse sua operação</h1><form id="login">${input('E-mail ou usuário', 'username', '', 'text', 'required autocomplete="username" maxlength="254"')}${input('Senha', 'password', '', 'password', 'required autocomplete="current-password" maxlength="72"')}<p class="error" role="alert"></p><button class="primary">Continuar</button></form></section>`;
@@ -962,10 +961,13 @@ window.addEventListener('hashchange', () => {
     if (user) render();
 });
 try {
-    csrf = await api('/auth/csrf');
-    user = await api('/auth/me');
-    shell();
-    await render();
+    const session = await api('/auth/session');
+    csrf = session.csrf;
+    user = session.user;
+    if (user) {
+        shell();
+        await render();
+    } else await loginScreen(false);
 } catch {
     await loginScreen();
 }

@@ -63,32 +63,56 @@ public class JdbcQueries implements Queries {
         sale.put("receipts",db.queryForList("SELECT e.*,u.username actor_name FROM cash_entry e JOIN app_user u ON u.id=e.actor WHERE sale_id=? ORDER BY created_at",id));return sale;
     }
     public Map<String,Object> dashboard(){
-        var out=new LinkedHashMap<String,Object>();
-        out.put("cash",db.queryForObject("SELECT coalesce(sum(amount),0) FROM cash_entry",BigDecimal.class));
-        out.putAll(db.queryForMap("SELECT coalesce(sum(total-paid),0) receivables,count(*) FILTER(WHERE delivered_at IS NULL) pending_deliveries,count(*) FILTER(WHERE paid<total) pending_payment_count FROM sale"));
-        out.put("stock_value",db.queryForObject("SELECT coalesce(sum(s.quantity*s.average_cost),0) FROM stock s",BigDecimal.class));
-        out.put("stock_quantity",db.queryForObject("SELECT coalesce(sum(quantity),0) FROM stock",BigDecimal.class));
-        var now=LocalDate.now(ZoneId.of("America/Sao_Paulo"));
-        var todayStart=now.atStartOfDay(ZoneId.of("America/Sao_Paulo")).toInstant();
-        var tomorrowStart=now.plusDays(1).atStartOfDay(ZoneId.of("America/Sao_Paulo")).toInstant();
+        var zone=ZoneId.of("America/Sao_Paulo");
+        var now=LocalDate.now(zone);
+        var monthStart=now.withDayOfMonth(1);
+        var todayStart=java.sql.Timestamp.from(now.atStartOfDay(zone).toInstant());
+        var tomorrowStart=java.sql.Timestamp.from(now.plusDays(1).atStartOfDay(zone).toInstant());
+        var monthStartInstant=java.sql.Timestamp.from(monthStart.atStartOfDay(zone).toInstant());
+        // One round trip for all cards; no browser cache of balances or financial results.
+        var out=new LinkedHashMap<String,Object>(db.queryForMap("""
+                WITH bounds AS (SELECT ?::timestamptz month_start,?::timestamptz until),
+                sales_summary AS (
+                    SELECT coalesce(sum(total-paid),0) receivables,
+                           count(*) FILTER(WHERE delivered_at IS NULL) pending_deliveries,
+                           count(*) FILTER(WHERE paid<total) pending_payment_count,
+                           coalesce(sum(total) FILTER(WHERE created_at>=b.month_start AND created_at<b.until),0) month_sales_total,
+                           count(*) FILTER(WHERE created_at>=b.month_start AND created_at<b.until) month_sales_count,
+                           count(*) FILTER(WHERE delivered_at IS NOT NULL AND settled_at IS NOT NULL AND paid=total
+                             AND greatest(delivered_at,settled_at)>=b.month_start AND greatest(delivered_at,settled_at)<b.until) month_fulfilled_sales,
+                           coalesce(sum(total) FILTER(WHERE delivered_at IS NOT NULL AND settled_at IS NOT NULL AND paid=total
+                             AND greatest(delivered_at,settled_at)>=b.month_start AND greatest(delivered_at,settled_at)<b.until),0) month_realized_revenue
+                    FROM sale CROSS JOIN bounds b
+                ), stock_summary AS (
+                    SELECT coalesce(sum(quantity*average_cost),0) stock_value,coalesce(sum(quantity),0) stock_quantity FROM stock
+                ), movement_summary AS (
+                    SELECT count(*) month_movement_count,
+                           coalesce(sum(delta) FILTER(WHERE type='INBOUND'),0) month_inbound,
+                           coalesce(sum(delta) FILTER(WHERE type='DELIVERY'),0) month_outbound,
+                           coalesce(sum(delta) FILTER(WHERE type='DAMAGE'),0) month_damage
+                    FROM stock_movement CROSS JOIN bounds b WHERE created_at>=b.month_start AND created_at<b.until
+                ), profit_summary AS (
+                    SELECT coalesce(sum((sl.price-sl.delivered_cost)*sl.quantity),0) month_realized_profit
+                    FROM sale s JOIN effective_sale_line sl ON sl.sale_id=s.id CROSS JOIN bounds b
+                    WHERE s.delivered_at IS NOT NULL AND s.settled_at IS NOT NULL AND s.paid=s.total
+                      AND greatest(s.delivered_at,s.settled_at)>=b.month_start AND greatest(s.delivered_at,s.settled_at)<b.until
+                )
+                SELECT sales_summary.*,stock_summary.*,movement_summary.*,profit_summary.*,
+                       (SELECT coalesce(sum(amount),0) FROM cash_entry) cash
+                FROM sales_summary CROSS JOIN stock_summary CROSS JOIN movement_summary CROSS JOIN profit_summary
+                """,monthStartInstant,tomorrowStart));
         out.put("today_orders",db.queryForList("""
                 SELECT s.id,s.customer_name,s.total,s.paid,s.total-s.paid due,s.created_at,s.delivered_at,
                        c.document customer_document,
-                       (SELECT string_agg(sl.quantity::text || ' × ' || sl.product_name, ', ' ORDER BY sl.product_name) FROM effective_sale_line sl WHERE sl.sale_id=s.id) items_summary,
-                       (SELECT sum(sl.quantity) FROM effective_sale_line sl WHERE sl.sale_id=s.id) item_quantity,
+                       (SELECT string_agg(sl.quantity::text || ' × ' || sl.product_name, ', ' ORDER BY sl.product_name) FROM sale_line sl WHERE sl.sale_id=s.id) items_summary,
+                       (SELECT sum(sl.quantity) FROM sale_line sl WHERE sl.sale_id=s.id) item_quantity,
                        CASE WHEN s.paid=0 THEN 'PENDING' WHEN s.paid<s.total THEN 'PARTIAL' ELSE 'PAID' END payment_status
                 FROM sale s JOIN customer c ON c.id=s.customer_id
                 WHERE s.created_at>=? AND s.created_at<? ORDER BY s.created_at DESC,s.id
-                """,java.sql.Timestamp.from(todayStart),java.sql.Timestamp.from(tomorrowStart)));
-        var monthStart=now.withDayOfMonth(1);
-        var monthStartInstant=monthStart.atStartOfDay(ZoneId.of("America/Sao_Paulo")).toInstant();
-        out.put("daily_profit",db.queryForList("SELECT calendar.sales_date,coalesce(sum((sl.price-sl.delivered_cost)*sl.quantity),0) gross_profit FROM (SELECT generate_series(?::date,?::date,interval '1 day')::date sales_date) calendar LEFT JOIN sale s ON s.delivered_at IS NOT NULL AND s.settled_at IS NOT NULL AND s.paid=s.total AND greatest(s.delivered_at,s.settled_at)>=(calendar.sales_date::timestamp AT TIME ZONE 'America/Sao_Paulo') AND greatest(s.delivered_at,s.settled_at)<((calendar.sales_date+1)::timestamp AT TIME ZONE 'America/Sao_Paulo') LEFT JOIN effective_sale_line sl ON sl.sale_id=s.id GROUP BY calendar.sales_date ORDER BY calendar.sales_date",java.sql.Date.valueOf(monthStart),java.sql.Date.valueOf(now)));
-        out.put("month_realized_profit",db.queryForObject("SELECT coalesce(sum((sl.price-sl.delivered_cost)*sl.quantity),0) FROM sale s JOIN effective_sale_line sl ON sl.sale_id=s.id WHERE s.delivered_at IS NOT NULL AND s.settled_at IS NOT NULL AND s.paid=s.total AND greatest(s.delivered_at,s.settled_at)>=? AND greatest(s.delivered_at,s.settled_at)<?",BigDecimal.class,java.sql.Timestamp.from(monthStartInstant),java.sql.Timestamp.from(tomorrowStart)));
-        out.put("month_realized_revenue",db.queryForObject("SELECT coalesce(sum(total),0) FROM sale WHERE delivered_at IS NOT NULL AND settled_at IS NOT NULL AND paid=total AND greatest(delivered_at,settled_at)>=? AND greatest(delivered_at,settled_at)<?",BigDecimal.class,java.sql.Timestamp.from(monthStartInstant),java.sql.Timestamp.from(tomorrowStart)));
-        out.put("month_sales_total",db.queryForObject("SELECT coalesce(sum(total),0) FROM sale WHERE created_at>=? AND created_at<?",BigDecimal.class,java.sql.Timestamp.from(monthStartInstant),java.sql.Timestamp.from(tomorrowStart)));
-        // Read-only chart projections. Settlement and delivery keep the same recognition rule as monthly profit.
+                """,todayStart,tomorrowStart));
         var chartStart=monthStart.isBefore(now.minusDays(6))?monthStart:now.minusDays(6);
-        out.put("daily_activity",db.queryForList("""
+        var chartStartInstant=java.sql.Timestamp.from(chartStart.atStartOfDay(zone).toInstant());
+        var activity=db.queryForList("""
                 WITH calendar AS (
                     SELECT generate_series(?::date,?::date,interval '1 day')::date activity_date
                 ), completed AS (
@@ -104,19 +128,20 @@ public class JdbcQueries implements Queries {
                            coalesce(sum(delta) FILTER(WHERE type='INBOUND'),0) inbound,
                            coalesce(-sum(delta) FILTER(WHERE type='DELIVERY'),0) outbound,
                            coalesce(-sum(delta) FILTER(WHERE type='DAMAGE'),0) damage
-                    FROM effective_stock_movement WHERE created_at>=? AND created_at<? GROUP BY 1
+                    FROM stock_movement WHERE created_at>=? AND created_at<? GROUP BY 1
                 )
                 SELECT c.activity_date,coalesce(s.revenue,0) revenue,coalesce(s.gross_profit,0) gross_profit,
                        coalesce(m.inbound,0) inbound,coalesce(m.outbound,0) outbound,coalesce(m.damage,0) damage
                 FROM calendar c LEFT JOIN completed s USING(activity_date) LEFT JOIN movements m USING(activity_date)
                 ORDER BY c.activity_date
                 """,java.sql.Date.valueOf(chartStart),java.sql.Date.valueOf(now),
-                java.sql.Timestamp.from(chartStart.atStartOfDay(ZoneId.of("America/Sao_Paulo")).toInstant()),java.sql.Timestamp.from(tomorrowStart),
-                java.sql.Timestamp.from(chartStart.atStartOfDay(ZoneId.of("America/Sao_Paulo")).toInstant()),java.sql.Timestamp.from(tomorrowStart)));
-        var month=now.withDayOfMonth(1).atStartOfDay(ZoneId.of("America/Sao_Paulo")).toInstant();
-        out.putAll(db.queryForMap("SELECT count(*) FILTER(WHERE created_at>=?) month_movement_count,coalesce(sum(delta) FILTER(WHERE type='INBOUND' AND created_at>=?),0) month_inbound,coalesce(sum(delta) FILTER(WHERE type='DELIVERY' AND created_at>=?),0) month_outbound,coalesce(sum(delta) FILTER(WHERE type='DAMAGE' AND created_at>=?),0) month_damage FROM effective_stock_movement",java.sql.Timestamp.from(month),java.sql.Timestamp.from(month),java.sql.Timestamp.from(month),java.sql.Timestamp.from(month)));
-        out.putAll(db.queryForMap("SELECT count(*) FILTER(WHERE created_at>=?) month_sales_count,count(*) FILTER(WHERE delivered_at IS NOT NULL AND paid=total AND greatest(delivered_at,settled_at)>=?) month_fulfilled_sales FROM sale",java.sql.Timestamp.from(month),java.sql.Timestamp.from(month)));
+                chartStartInstant,tomorrowStart,chartStartInstant,tomorrowStart);
+        out.put("daily_activity",activity);
+        out.put("daily_profit",activity.stream()
+                .filter(day->!((java.sql.Date)day.get("activity_date")).toLocalDate().isBefore(monthStart))
+                .map(day->Map.of("sales_date",day.get("activity_date"),"gross_profit",day.get("gross_profit"))).toList());
         return out;
     }
+
     public Map<String,Object> customerSummary(UUID id){return db.queryForMap("SELECT coalesce(sum(total-paid),0) debt,count(*) FILTER(WHERE delivered_at IS NULL) pending_deliveries,coalesce(sum(total),0) purchased_total FROM sale WHERE customer_id=?",id);}
 }

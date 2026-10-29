@@ -8,7 +8,7 @@ import org.springframework.security.web.context.*;
 public class SecurityConfiguration {
     @Bean SecurityContextRepository securityContexts(){return new HttpSessionSecurityContextRepository();}
     @Bean SecurityFilterChain security(HttpSecurity http,SecurityContextRepository contexts)throws Exception {
-        return http.authorizeHttpRequests(a->a.requestMatchers("/","/index.html","/app.js","/style.css","/api/auth/csrf","/api/auth/login","/api/auth/enrollment","/api/auth/confirm","/actuator/health","/error").permitAll().anyRequest().authenticated())
+        return http.authorizeHttpRequests(a->a.requestMatchers("/","/index.html","/app.js","/style.css","/api/auth/csrf","/api/auth/session","/api/auth/login","/api/auth/enrollment","/api/auth/confirm","/actuator/health","/error").permitAll().anyRequest().authenticated())
             .securityContext(c->c.securityContextRepository(contexts))
             .requestCache(c->c.disable()).formLogin(c->c.disable()).httpBasic(c->c.disable())
             .logout(c->c.logoutUrl("/api/auth/logout").logoutSuccessHandler((req,res,auth)->res.setStatus(204)))

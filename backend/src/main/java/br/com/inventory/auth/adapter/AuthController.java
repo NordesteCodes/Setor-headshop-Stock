@@ -19,8 +19,13 @@ public class AuthController {
     public AuthController(Accounts accounts,SecurityContextRepository contexts){this.accounts=accounts;this.contexts=contexts;}
     public record Login(@NotBlank @Size(max=254)String username,@NotBlank @Size(max=72)String password,@Pattern(regexp="[0-9]{6}")String otp){}
     public record Confirmation(@NotBlank @Pattern(regexp="[0-9]{6}")String otp){}
+    public record SessionState(Map<String,String> csrf,Accounts.Identity user) {}
     private static final String PENDING="auth.pending";
     @GetMapping("/csrf") public Map<String,String> csrf(CsrfToken token){return Map.of("token",token.getToken(),"header",token.getHeaderName());}
+    @GetMapping("/session") public SessionState session(CsrfToken token,Authentication auth,HttpServletResponse res){
+        res.setHeader("Cache-Control","no-store");
+        return new SessionState(csrf(token),auth!=null && auth.getPrincipal() instanceof Accounts.Identity identity?identity:null);
+    }
     @PostMapping("/login") public Object login(@Valid @RequestBody Login input,HttpServletRequest req,HttpServletResponse res){
         req.getSession().removeAttribute(PENDING);
         if(input.otp()==null){
@@ -45,11 +50,12 @@ public class AuthController {
     }
     private Accounts.Challenge challenge(HttpServletRequest req){
         var session=req.getSession(false);
-        if(session==null || !(session.getAttribute(PENDING) instanceof Accounts.Challenge c))throw invalid();
-        if(!c.valid()){session.removeAttribute(PENDING);throw invalid();}
+        if(session==null || !(session.getAttribute(PENDING) instanceof Accounts.Challenge c))throw expired();
+        if(!c.valid()){session.removeAttribute(PENDING);throw expired();}
         return c;
     }
     private ResponseStatusException invalid(){return new ResponseStatusException(HttpStatus.UNAUTHORIZED,"Credenciais ou código inválidos, sessão expirada ou limite temporário atingido.");}
+    private ResponseStatusException expired(){return new ResponseStatusException(HttpStatus.UNAUTHORIZED,"A sessão de verificação expirou ou não foi encontrada. Volte ao login e entre novamente.");}
     private Accounts.Identity signedIn(Accounts.Identity user,HttpServletRequest req,HttpServletResponse res){
         req.getSession();req.changeSessionId();
         var context=SecurityContextHolder.createEmptyContext();context.setAuthentication(new UsernamePasswordAuthenticationToken(user,null,List.of(new SimpleGrantedAuthority("INTERNAL"))));

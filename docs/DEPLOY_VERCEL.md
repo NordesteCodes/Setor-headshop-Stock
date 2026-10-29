@@ -46,8 +46,16 @@ disponibilidade antes de trocar a aplicação por uma publicação estática.
 ## Limites desta configuração
 
 Este arquivo configura execução e roteamento; não substitui a preparação de
-produção. As sessões ainda estão em memória e precisam ser persistidas antes
-de uso operacional em instâncias efêmeras/múltiplas. Também faltam validar as
+produção. As sessões são persistidas no PostgreSQL pelo Spring Session JDBC;
+a migração V6 cria as tabelas automaticamente na inicialização. Todas as
+instâncias devem usar o mesmo banco e a mesma APP_ENCRYPTION_KEY. Após esta
+atualização, faça login novamente: sessões antigas em memória não são migradas.
+O prazo de inatividade é de 30 minutos; a confirmação do autenticador mantém
+seu prazo de cinco minutos. Em rollback, preserve as tabelas V6; voltar à
+implementação anterior encerra a continuidade das sessões entre instâncias.
+O pool de conexões usa até três conexões por instância (DB_POOL_SIZE).
+A inicialização a frio do contêiner ainda pode atrasar o primeiro acesso.
+Também faltam validar as
 migrações no Supabase, os privilégios de banco e o bloqueio da exposição das
 tabelas internas pela Data API. Não considerar o sistema pronto para dados
 reais só porque a tela de login abriu.
