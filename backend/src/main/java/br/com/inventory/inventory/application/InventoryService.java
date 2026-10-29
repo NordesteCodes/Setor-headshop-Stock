@@ -15,6 +15,32 @@ public class InventoryService {
         this.stock=stock; this.catalog=catalog; this.commands=commands;
     }
     public record Adjustment(UUID productId,long quantity,BigDecimal unitCost,String type,String reason) {}
+    /** Restricted maintenance for an incorrectly valued single opening lot; caller owns transaction. */
+    public UUID repairOpeningCost(UUID key, UUID product, BigDecimal cost, String reason, String operator) {
+        require(key!=null && product!=null,"Chave e produto obrigatórios.");
+        cost=money(cost); reason=text(reason,500); operator=text(operator,150);
+        var existing=stock.costRepair(key);
+        if(existing!=null) {
+            require(existing.product().equals(product) && existing.cost().compareTo(cost)==0 && existing.reason().equals(reason) && existing.operator().equals(operator),"Chave de correção já usada com outros dados.");
+            return key;
+        }
+        var before=stock.lock(product);
+        var history=stock.costHistory(product);
+        require(!history.isEmpty() && history.getFirst().type().equals("INBOUND"),"Entrada inicial não encontrada.");
+        long balance=0;
+        for(int i=0;i<history.size();i++) {
+            var movement=history.get(i);
+            require(i==0 || java.util.Set.of("DELIVERY","DAMAGE").contains(movement.type()),"Correção exige um único lote de entrada, sem reposições ou ajustes.");
+            require(movement.cost().compareTo(before.averageCost())==0,"Custos divergentes: necessária reconciliação específica.");
+            require(i==0 ? movement.delta()>0 : movement.delta()<0,"Direção de movimento inválida.");
+            balance=Math.addExact(balance,movement.delta());
+            require(balance>=0,"Histórico de estoque inconsistente.");
+        }
+        require(balance==before.quantity(),"Saldo diverge dos movimentos.");
+        stock.recordCostRepair(new InventoryRepository.CostRepair(key,product,cost,reason,operator),before,history);
+        stock.update(product,new StockPosition(before.quantity(),cost.setScale(6)));
+        return key;
+    }
     public UUID adjust(UUID key,Adjustment input,UUID actor) {
         return commands.execute("stock",key,input,actor,()-> {
             require(input.quantity()>0 && input.quantity()<=1_000_000_000L,"Quantidade inválida.");

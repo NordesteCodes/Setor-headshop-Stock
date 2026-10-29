@@ -4,7 +4,7 @@ Sistema interno agnóstico ao ramo, Java 21/Spring Boot 3.5, PostgreSQL 17 e fro
 
 O dashboard apresenta indicadores de estoque, contas a receber, lucro bruto mensal, balanço físico e pedidos de hoje. Os gráficos alternam entre hoje, sete dias e mês vigente; faturamento realizado e lucro bruto consideram vendas entregues e totalmente quitadas. A tabela mostra somente pedidos criados hoje, com filtros de pagamento/entrega, itens e acesso ao pedido. A composição de valores inclui estoque ao custo, caixa positivo e recebíveis; o saldo completo do caixa continua na página Caixa.
 
-As páginas de catálogo, clientes, movimentações, vendas e caixa compartilham os componentes dos frames importados no Figma. Clientes contam com painel de consulta rápida e pedidos recentes. Campos monetários aceitam `2.150,99`, `2150,99` ou `2150.99`; o formulário “Montar compra do cliente” apresenta total e saldo a receber antes da confirmação. A exportação CSV inclui somente a página visível.
+As páginas de catálogo, clientes, movimentações, vendas e caixa compartilham os componentes dos frames importados no Figma. Clientes contam com painel de consulta rápida, indicadores compactos e pedidos recentes. Campos monetários aceitam `2.150,99`, `2150,99` ou `2150.99`; o formulário “Montar compra do cliente” apresenta total e saldo a receber antes da confirmação. Nos detalhes do pedido, “Exportar Excel” baixa um `.xlsx` com as abas Pedido, Itens e Recebimentos. As páginas não têm exportação genérica. Os gráficos do dashboard mostram valores ao passar o mouse ou usar o foco do teclado.
 
 ## Executar no Windows com Docker Desktop (Linux containers)
 
@@ -31,6 +31,20 @@ Não existe recuperação automática de segundo fator nesta entrega. A recupera
 8. Caixa → despesas, compra paga, aporte, retirada ou saldo inicial. Estorno mantém auditoria.
 
 Pedidos não reservam estoque. Não há entrega parcial. Pagamento e entrega são independentes. Produtos excluídos saem do catálogo e mantêm os movimentos e pedidos anteriores. Sem contabilidade fiscal, projeções ou integração bancária. Gastos manuais não alteram o custo médio dos produtos.
+
+### Correção operacional de custo inicial
+
+Editar o preço de compra não altera custos históricos. Para corrigir um erro confirmado em um único lote inicial, a manutenção local `OpeningCostRepairCommand` passa pelo serviço de estoque, em transação e com bloqueio do saldo. Exige motivo, operador identificável e UUID estável da operação. Aceita apenas uma entrada seguida de entregas/avarias com custo uniforme e saldo conciliado; rejeita reposições, custos mistos e segunda correção do mesmo produto. Não altera caixa nem quantidades.
+
+Após a migração V5, execute no terminal PowerShell ou Bash, substituindo os argumentos (o custo usa ponto decimal):
+
+```sh
+docker compose exec -T app java "-Dloader.main=br.com.inventory.inventory.adapter.maintenance.OpeningCostRepairCommand" -cp /app/app.jar org.springframework.boot.loader.launch.PropertiesLauncher UUID-DA-OPERACAO UUID-DO-PRODUTO 1.90 operador-identificavel "Motivo confirmado da correcao"
+```
+
+A identidade operacional e o papel do banco são gravados em `opening_cost_repair`; as referências e os custos anteriores ficam em `opening_cost_repair_movement`. Ambos são imutáveis. As consultas usam `effective_stock_movement` e `effective_sale_line`; os lançamentos originais permanecem nas tabelas base. Os detalhes do movimento apresentam custo original e referência da correção. Repetir os mesmos argumentos devolve a operação original; reutilizar o UUID com outros dados falha.
+
+A V5 é aditiva e não corrige produtos automaticamente. Faça backup antes de manutenção. Rollback do aplicativo após uma correção exige restaurar um backup consistente ou implementar uma compensação revisada; não apague a auditoria nem remova apenas as views, pois o saldo e os resultados precisam continuar coerentes. A ferramenta não substitui reconciliação de múltiplos lotes.
 
 ## Testes
 
