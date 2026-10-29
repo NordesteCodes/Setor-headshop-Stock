@@ -779,9 +779,8 @@ async function loginScreen() {
     csrf = await api('/auth/csrf');
     user = null;
     if (dialog.open) dialog.close();
-    $('#app').innerHTML = `<section class="login panel"><p class="eyebrow">Setor Headshop</p><h1>Acesse sua operação</h1><p class="subtitle">Entre com seu e-mail e senha. No primeiro acesso, você configurará seu autenticador.</p><form id="login">${input('E-mail ou usuário', 'username', '', 'text', 'required autocomplete="username" maxlength="254"')}${input('Senha', 'password', '', 'password', 'required autocomplete="current-password" maxlength="72"')}<p class="error" role="alert"></p><button class="primary">Continuar</button></form><p class="muted">Contas individuais cadastradas pelo responsável no banco de dados.</p></section>`;
-    $('#login').onsubmit = async e => {
-        e.preventDefault();
+    $('#app').innerHTML = `<section class="login panel"><p class="eyebrow">Setor Headshop</p><h1>Acesse sua operação</h1><form id="login">${input('E-mail ou usuário', 'username', '', 'text', 'required autocomplete="username" maxlength="254"')}${input('Senha', 'password', '', 'password', 'required autocomplete="current-password" maxlength="72"')}<p class="error" role="alert"></p><button class="primary">Continuar</button></form></section>`;
+    $('#login').onsubmit = async e => {e.preventDefault();
         const form = e.target, button = $('button', form);
         button.disabled = true;
         $('.error', form).textContent = '';
