@@ -8,6 +8,8 @@ As páginas de catálogo, clientes, movimentações, vendas e caixa compartilham
 
 ## Executar no Windows com Docker Desktop (Linux containers)
 
+Para publicação em Vercel com PostgreSQL Supabase, veja [configuração de deploy](docs/DEPLOY_VERCEL.md).
+
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts/setup-local.ps1 -Username seu.usuario
 docker compose up --build -d
